@@ -1,74 +1,74 @@
-body {
-    font-family: sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background: #f4f4f4;
-    color: #333;
-}
+    body {
+        font-family: sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background: #f4f4f4;
+        color: #333;
+    }
 
-header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
-}
+    header {
+        background: #333;
+        color: #fff;
+        padding: 1rem 0;
+        text-align: center;
+    }
 
-/* Section Styles */
-#hero {
-    background: #f8f9fa;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding-top: 80px;
-}
-
-#about, #skills, #projects, #contact {
-    padding-top: 80px;
-    padding-bottom: 80px;
-}
-
-#about {
-    background: #fff;
-}
-
-#skills {
-    background: #f8f9fa;
-}
-
-#projects {
-    background: #fff;
-}
-
-#contact {
-    background: #f8f9fa;
-}
-
-footer {
-    background: #222;
-    color: #fff;
-    padding: 1rem 0;
-}
-
-/* Card and Image Styles */
-.card-img-top {
-    object-fit: cover;
-    height: 200px;
-}
-
-/* Responsive tweaks */
-@media (max-width: 767px) {
+    /* Section Styles */
     #hero {
-        padding-top: 120px;
-        min-height: 60vh;
+        background: #f8f9fa;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding-top: 80px;
     }
+
     #about, #skills, #projects, #contact {
-        padding-top: 40px;
-        padding-bottom: 40px;
+        padding-top: 80px;
+        padding-bottom: 80px;
     }
+
+    #about {
+        background: #fff;
+    }
+
+    #skills {
+        background: #f8f9fa;
+    }
+
+    #projects {
+        background: #fff;
+    }
+
+    #contact {
+        background: #f8f9fa;
+    }
+
+    footer {
+        background: #222;
+        color: #fff;
+        padding: 1rem 0;
+    }
+
+    /* Card and Image Styles */
     .card-img-top {
-        height: 150px;
+        object-fit: cover;
+        height: 200px;
     }
-}
+
+    /* Responsive tweaks */
+    @media (max-width: 767px) {
+        #hero {
+            padding-top: 120px;
+            min-height: 60vh;
+        }
+        #about, #skills, #projects, #contact {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+        .card-img-top {
+            height: 150px;
+        }
+    }

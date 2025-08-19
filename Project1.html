@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: F1 Front Wing Analysis - Antonio Doral</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" href="assets/images/Logo.png">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html#hero">Antonio Doral</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Detail Section -->
+    <main class="container py-5 mt-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1 class="mb-4">F1 Front Wing Analysis</h1>
+                <img src="assets/images/project1-placeholder.png" class="img-fluid mb-4" alt="F1 Front Wing CFD">
+                
+                <h3>Project Overview</h3>
+                <p>This project involved a comprehensive Computational Fluid Dynamics (CFD) analysis of a modern, high-downforce Formula 1 front wing. The primary objectives were to investigate the generation of the Y250 vortex and analyze the effectiveness of the wing's endplates in creating outwash to manage front wheel wake.</p>
+                
+                <h3>My Role and Responsibilities</h3>
+                <ul>
+                    <li>Designed the front wing geometry in CATIA, adhering to F1 technical regulations.</li>
+                    <li>Developed a high-quality mesh using ANSYS Meshing, with refined inflation layers to accurately capture the boundary layer.</li>
+                    <li>Ran steady-state RANS simulations in ANSYS Fluent using the k-ω SST turbulence model.</li>
+                    <li>Post-processed results in ParaView to visualize pressure contours, velocity streamlines, and vorticity plots.</li>
+                </ul>
+
+                <h3>Key Outcomes</h3>
+                <p>The analysis successfully identified the formation and trajectory of the Y250 vortex. The results showed a 15% increase in outwash efficiency compared to a baseline design, contributing to a significant reduction in drag from the front wheel wake. This project demonstrates strong skills in complex aerodynamic simulation and data interpretation.</p>
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Project Details</h5>
+                        <ul class="list-unstyled">
+                            <li><strong>Tools Used:</strong> CATIA, ANSYS Fluent, ParaView, Python</li>
+                            <li><strong>Core Competencies:</strong> Aerodynamics, CFD, CAD Design, Data Analysis</li>
+                            <li><strong>Date:</strong> Spring 2025</li>
+                            <li><a href="#" class="btn btn-dark mt-3">View Full Report (PDF)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 bg-dark text-white">
+        <div class="container">
+            <p>&copy; 2025 Antonio Doral. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
