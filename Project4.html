@@ -5,32 +5,137 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vibrational Analysis | Antonio Doral</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Link to your consolidated stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css"> 
     <link rel="icon" type="image/png" href="assets/images/Logo_small.png">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">Antonio Doral</a>
+            <a href="index.html#projects" class="back-button">
+                <i data-lucide="arrow-left"></i>Back to Projects
+            </a>
         </div>
     </nav>
-    <main class="container" style="padding-top:100px;">
-        <h1>Vibrational Analysis</h1>
-        <img src="assets/images/vibrational-analysis.png" alt="Vibrational Analysis" class="img-fluid mb-4" style="max-width:400px;">
-        <p>This project focuses on modal and vibrational analysis of automotive components to ensure structural integrity and optimal performance under dynamic loads.</p>
-        <h3>Key Features</h3>
-        <ul>
-            <li>Finite element modeling</li>
-            <li>Modal frequency extraction</li>
-            <li>Design recommendations for vibration reduction</li>
-        </ul>
+
+    <header class="project-header">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="project-title">Advanced Vibrational Analysis via Non-Invasive Image Recognition</h1>
+                <p class="project-subtitle">Developing a low-cost, high-fidelity system to analyze structural dynamics—a method with direct applications to understanding aeroelasticity in F1.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Media Flow Section -->
+        <section class="media-flow-section py-5">
+            <div class="media-flow-container">
+                <!-- Item 1: Video -->
+                <div class="media-item">
+                    <video src="assets/Images/Vibration/input.mp4" autoplay loop muted playsinline></video>
+                    <div class="media-title">
+                        <h5>Input Video</h5>
+                    </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="flow-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </div>
+
+                <!-- Item 2: Video -->
+                <div class="media-item">
+                    <video src="assets/Images/Vibration/output.mp4" autoplay loop muted playsinline></video>
+                    <div class="media-title">
+                        <h5>Output Video</h5>
+                    </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="flow-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </div>
+
+                <!-- Item 3: Image -->
+                <div class="media-item">
+                    <img src="assets/images/Vibration/Detailed displacement of Target 2.png" alt="Final Analysis Result">
+                    <div class="media-title">
+                        <h5>Displacement Measurements</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <hr class="my-5">
+
+        <!-- Detailed Sections -->
+        <div class="row g-5">
+            <div class="col-lg-7">
+                <h3 class="section-title">Project Objective</h3>
+                <p>The goal was to validate a non-contact vibrational analysis method using image recognition as a faster, more cost-effective alternative to traditional accelerometer or strain gauge setups. This is critical in environments where mass loading from sensors would compromise the integrity of the results, such as with lightweight composite structures in motorsport.</p>
+                
+                <h3 class="section-title mt-5">Methodology</h3>
+                <p>A helicopter rotor blade was subjected to controlled frequency sweeps from a shaker. A high-speed camera recorded the response, and a custom MATLAB script was developed to perform the following:</p>
+                <ul class="methodology-list">
+                    <li class="methodology-item">
+                        <strong>Image Segmentation</strong>
+                        Isolate color-calibrated targets against the background.
+                    </li>
+                    <li class="methodology-item">
+                        <strong>Centroid Tracking</strong>
+                        Calculate the precise geometric center of each target in every video frame.
+                    </li>
+                    <li class="methodology-item">
+                        <strong>Data Transformation</strong>
+                        Apply a Fast Fourier Transform (FFT) to the displacement-time data to identify dominant frequencies.
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="col-lg-5">
+                <div class="key-outcomes">
+                    <h4>Key Technical Outcomes</h4>
+                    <div class="outcome-item">
+                        <i data-lucide="check-circle-2"></i>
+                        <div>Identified natural frequencies within 2% of FEA predictions.</div>
+                    </div>
+                    <div class="outcome-item">
+                        <i data-lucide="check-circle-2"></i>
+                        <div>Achieved sub-pixel measurement accuracy for displacement tracking.</div>
+                    </div>
+                    <div class="outcome-item">
+                        <i data-lucide="check-circle-2"></i>
+                        <div>Validated a non-invasive method suitable for aeroelastic analysis.</div>
+                    </div>
+                    <div class="outcome-item">
+                        <i data-lucide="check-circle-2"></i>
+                        <div>Reduced setup time by over 70% compared to traditional methods.</div>
+                    </div>
+
+                    <h4 class="mt-5">Technology Stack</h4>
+                    <div>
+                        <span class="tech-stack-icon"><i data-lucide="file-code"></i>MATLAB</span>
+                        <span class="tech-stack-icon"><i data-lucide="camera"></i>Image Processing</span>
+                        <span class="tech-stack-icon"><i data-lucide="siren"></i>Signal Analysis (FFT)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+
     <footer class="text-center py-4 bg-dark text-white mt-5">
         <div class="container">
             <p>&copy; 2025 Antonio Doral. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script>
+      lucide.createIcons();
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
 </body>
 </html>
