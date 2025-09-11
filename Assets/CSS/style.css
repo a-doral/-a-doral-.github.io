@@ -27,12 +27,15 @@
     }
 
     .hero-image-container {
-        width: 80%;
+        width: 100%;
         margin-top: 1rem;
+        padding: 0 15px;
     }
 
     .hero-image {
-        max-height: 30vh;
+        max-height: 25vh;
+        width: auto;
+        max-width: 100%;
     }
 
     /* Timeline Mobile Improvements */
@@ -41,41 +44,50 @@
     }
 
     .timeline-item {
-        margin-bottom: 40px;
+        margin-bottom: 60px;
+        position: relative;
+        width: 100%;
     }
 
     .timeline-content {
-        width: calc(100% - 50px);
-        margin-left: 50px !important;
+        width: calc(100% - 60px);
+        margin-left: 60px !important;
         margin-right: 0 !important;
+        position: relative;
     }
 
     .timeline-dot {
         left: 30px;
         transform: translateX(-50%);
+        top: 30px;
     }
 
     .timeline-year {
-        left: 80px !important;
+        position: absolute;
+        left: 60px !important;
         right: auto !important;
-        top: 0 !important;
+        top: -25px !important;
         transform: none !important;
         text-align: left !important;
         background: transparent;
         padding: 0;
         box-shadow: none;
-        margin-bottom: 10px;
+        z-index: 3;
     }
 
     .timeline-item:nth-child(even) .timeline-content,
     .timeline-item:nth-child(odd) .timeline-content {
         padding: 1.5rem;
-        margin-top: 30px;
+        margin-top: 0;
     }
 
     .timeline-content.timeline-card {
         align-items: flex-start;
         text-align: left;
+    }
+
+    .timeline-item:last-child {
+        margin-bottom: 0;
     }
 }
 
@@ -85,7 +97,13 @@
     }
 
     .hero-image-container {
-        width: 90%;
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .hero-image {
+        max-height: 20vh;
+        width: auto;
     }
 
     .display-4 {
