@@ -1,3 +1,102 @@
+/* Hero Section Styles */
+.hero-section {
+    min-height: 100vh;
+    background: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: calc(70px + 5vh) 0 5vh;
+}
+
+.hero-image-container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.hero-image {
+    width: 100%;
+    max-height: 40vh;
+    object-fit: contain;
+}
+
+@media (max-width: 767px) {
+    .hero-section {
+        min-height: auto;
+        padding: calc(56px + 2rem) 0 2rem;
+    }
+
+    .hero-image-container {
+        width: 80%;
+        margin-top: 1rem;
+    }
+
+    .hero-image {
+        max-height: 30vh;
+    }
+
+    /* Timeline Mobile Improvements */
+    .timeline::before {
+        left: 30px;
+    }
+
+    .timeline-item {
+        margin-bottom: 40px;
+    }
+
+    .timeline-content {
+        width: calc(100% - 50px);
+        margin-left: 50px !important;
+        margin-right: 0 !important;
+    }
+
+    .timeline-dot {
+        left: 30px;
+        transform: translateX(-50%);
+    }
+
+    .timeline-year {
+        left: 80px !important;
+        right: auto !important;
+        top: 0 !important;
+        transform: none !important;
+        text-align: left !important;
+        background: transparent;
+        padding: 0;
+        box-shadow: none;
+        margin-bottom: 10px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content,
+    .timeline-item:nth-child(odd) .timeline-content {
+        padding: 1.5rem;
+        margin-top: 30px;
+    }
+
+    .timeline-content.timeline-card {
+        align-items: flex-start;
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding-top: calc(56px + 1rem);
+    }
+
+    .hero-image-container {
+        width: 90%;
+    }
+
+    .display-4 {
+        font-size: calc(1.8rem + 1.5vw);
+    }
+
+    .lead {
+        font-size: 1.1rem;
+    }
+}
+
 /* Year label for timeline cards */
 .timeline-year {
     position: absolute;
