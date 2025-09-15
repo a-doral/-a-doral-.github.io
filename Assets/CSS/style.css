@@ -751,6 +751,41 @@ footer {
     margin-bottom: 0.5rem;
 }
 
+/* Thesis Badge and PDF Download Styles */
+.thesis-badge {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.thesis-badge .badge {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+}
+
+.pdf-download-section {
+    border: 1px solid rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.pdf-download-section:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.pdf-download-section .btn-primary {
+    padding: 0.6rem 1.2rem;
+    font-weight: 500;
+}
+
+.pdf-download-section .btn-primary svg {
+    transition: transform 0.3s ease;
+}
+
+.pdf-download-section .btn-primary:hover svg {
+    transform: translateY(2px);
+}
+
 /* Back to Projects Button */
 .back-button {
     color: #fff;
@@ -957,4 +992,127 @@ footer {
     .card-img-top {
         height: 150px;
     }
+}
+
+/* Project 1 selector and panels */
+.selector-wrapper { max-width: 900px; margin: 0 auto; }
+.selector { display: flex; gap: 0.5rem; background: transparent; padding: 0.25rem; border-radius: 12px; justify-content: center; }
+.selector-item { background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border: 1px solid rgba(0,0,0,0.06); padding: 0.6rem 1.2rem; border-radius: 12px; cursor: pointer; transition: all 0.25s ease; color: #333; font-weight: 600; }
+.selector-item:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+.selector-item.active { background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); color: #fff; box-shadow: 0 8px 28px rgba(0,123,255,0.18); }
+
+.panel-container { max-width: 1100px; margin: 0 auto; }
+.panel { display: none; background: transparent; padding: 0; }
+.panel.active { display: block; }
+
+.panel .section-title { margin-top: 0; }
+
+/* Slightly adjust methodology-item look inside these panels */
+.panel .methodology-item { background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); padding: 1rem; border-radius: 0.75rem; box-shadow: 0 6px 18px rgba(0,0,0,0.04); margin-bottom: 1rem; }
+
+/* Project card layout for panels */
+.project-card { background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border: 1px solid rgba(0,0,0,0.06); }
+.project-card-img { width: 220px; height: 140px; object-fit: cover; flex-shrink: 0; }
+
+@media (max-width: 768px) {
+    .project-card { flex-direction: column; }
+    .project-card-img { width: 100%; height: 180px; }
+}
+
+/* Panel transition */
+.panel { opacity: 0; transform: translateY(8px); transition: opacity 280ms ease, transform 280ms ease; }
+.panel.active { opacity: 1; transform: translateY(0); }
+
+/* refine project card spacing when multiple cards */
+.project-card + .project-card { margin-top: 1rem; }
+
+/* small visual polish */
+.project-card h5 { margin-bottom: 0.35rem; }
+.project-card p { margin-bottom: 0.35rem; }
+/* Image-first card style */
+.project-card {
+    display: flex !important;
+    gap: 1rem;
+    align-items: stretch;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+    border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Image becomes main visual */
+.project-card-img {
+    width: 475px; /* was 380px */
+    height: 275px; /* was 220px */
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 8px;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.project-card h5 { font-size: 1.05rem; }
+.project-card p { color: #475569; }
+
+@media (max-width: 992px) {
+    .project-card-img { width: 400px; height: 250px; }
+}
+
+@media (max-width: 768px) {
+    .project-card { flex-direction: column; }
+    .project-card-img { width: 100%; height: 320px; }
+}
+
+/* Lightbox modal image styling */
+.lightbox-img { width: 100%; height: auto; display: block; }
+
+/* Swiper Lightbox Styles */
+.lightbox-swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    transition: background-color 0.2s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.7);
+    width: 10px;
+    height: 10px;
+}
+
+.swiper-pagination-bullet-active {
+    background: #fff;
 }

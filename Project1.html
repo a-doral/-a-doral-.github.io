@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Bodywork | Antonio Doral</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link rel="icon" type="image/png" href="Assets/Images/Logo_small.png">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Antonio Doral</a>
+            <a href="index.html#projects" class="back-button">
+                <i data-lucide="arrow-left"></i>Back to Projects
+            </a>
+        </div>
+    </nav>
+
+    <header class="project-header">
+        <div class="container text-center">
+            <h1 class="project-title">F1 Bodywork - CAD & Aerodynamics</h1>
+            <p class="project-subtitle">CAD modeling workflow and highlighted aerodynamic features for a high-performance Formula 1 sidepod and engine cover.</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <!-- Horizontal selector -->
+        <div class="selector-wrapper mb-4">
+            <div class="selector" role="tablist" aria-label="Project sections">
+                <button class="selector-item active" data-target="cad" role="tab" aria-selected="true">CAD Creation</button>
+                <button class="selector-item" data-target="aero" role="tab" aria-selected="false">Aerodynamic Features</button>
+            </div>
+        </div>
+
+        <!-- Content panels -->
+        <div class="panel-container">
+            <section id="cad" class="panel active">
+                <h3 class="section-title">CAD Creation</h3>
+                <p>Overview of the CAD workflow: initial concept sketches, surface-based modeling for high-quality aesthetics, advanced surfacing tools to ensure manufacturable, continuous surfaces and tight curvature control.</p>
+                <ul class="methodology-list">
+                    <li class="methodology-item"><strong>Concept & Sketching:</strong> Rapid concept iterations and packaging studies to satisfy cooling and aerodynamic targets.</li>
+                    <li class="methodology-item"><strong>Reference Geometry:</strong> Parametric mounting points and packaging volumes established for component fitment.</li>
+                    <li class="methodology-item"><strong>Surface Modeling:</strong> High-quality surfacing (G2 continuity) using 3DExperience and SolidWorks surface tools.</li>
+                </ul>
+                <div class="mt-4">
+                    <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm">
+                        <img src="Assets/Images/Bodywork/Thumbnail.png" alt="CAD Detail" class="project-card-img rounded clickable-image" data-full="Assets/Images/Bodywork/Thumbnail.png">
+                        <div class="card-content">
+                            <h5 class="mb-2">Parametric Tangent Updates</h5>
+                            <p class="mb-1">Tangent lines created to update the design parametrically while maintaining G1 connectivity across adjacent surfaces. This preserves smooth visual flow and ensures downstream aerodynamic consistency.</p>
+                            <p class="text-muted small mb-0">Tools: 3DExperience / SolidWorks — Surfacing & parameter-driven sketches.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm mt-3">
+                        <img src="Assets/Images/Bodywork/Thumbnail.png" alt="CAD Detail 2" class="project-card-img rounded clickable-image" data-full="Assets/Images/Bodywork/Thumbnail.png">
+                        <div class="card-content">
+                            <h5 class="mb-2">Surface Fairing & Continuity</h5>
+                            <p class="mb-1">Applied fairing operations to improve curvature continuity and eliminate small surface undulations that cause numerical noise during CFD meshing.</p>
+                            <p class="text-muted small mb-0">Outcome: cleaner meshes and more robust CFD convergence.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm mt-3">
+                        <img src="Assets/Images/Bodywork/Thumbnail.png" alt="CAD Detail 3" class="project-card-img rounded clickable-image" data-full="Assets/Images/Bodywork/Thumbnail.png">
+                        <div class="card-content">
+                            <h5 class="mb-2">Parametric Mounting Features</h5>
+                            <p class="mb-1">Parametrised mounting bosses and cutouts allow quick adaptation to different packaging constraints without reworking the main surfacing.</p>
+                            <p class="text-muted small mb-0">Benefit: faster integration and less rework during packaging iterations.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="aero" class="panel">
+                <h3 class="section-title">Aerodynamic Features</h3>
+                <p>This section highlights design decisions taken to influence airflow, cooling, and downforce generation.</p>
+                <ul class="methodology-list">
+                    <li class="methodology-item"><strong>Sidepod Inlet Shaping:</strong> Optimized for internal ducting and radiator performance while minimising drag.</li>
+                    <li class="methodology-item"><strong>Engine Cover & Shark Fin:</strong> Designed to stabilise yaw behavior and smooth flow to the rear wing.</li>
+                    <li class="methodology-item"><strong>Underbody Interfaces:</strong> Smooth transitions to reduce separation and recover energy towards the diffuser.</li>
+                </ul>
+                <div class="mt-4">
+                    <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm">
+                        <img src="Assets/Images/Bodywork/Thumbnail.png" alt="Aero Variant" class="project-card-img rounded clickable-image" data-full="Assets/Images/Bodywork/Thumbnail.png">
+                        <div class="card-content">
+                            <h5 class="mb-2">Geometry Variants & Purpose</h5>
+                            <p class="mb-1">Multiple geometry variants were evaluated: one prioritising cooling flow, another prioritising low drag for high-speed stability. Each variant was parameterised for rapid CFD study iterations.</p>
+                            <p class="text-muted small mb-0">Notes: Variant A — increased inlet area; Variant B — reduced frontal curvature for lower drag.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm mt-3">
+                        <img src="Assets/Images/Bodywork/Thumbnail.png" alt="Aero Variant 2" class="project-card-img rounded clickable-image" data-full="Assets/Images/Bodywork/Thumbnail.png">
+                        <div class="card-content">
+                            <h5 class="mb-2">Cooling-focused Inlet</h5>
+                            <p class="mb-1">A widened inlet variant improves mass flow to radiators at low speeds, reducing peak temperatures during city-like circuits.</p>
+                            <p class="text-muted small mb-0">Trade-off: slight increase in drag, mitigated with internal duct shaping.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm mt-3">
+                        <img src="Assets/Images/Bodywork/Thumbnail.png" alt="Aero Variant 3" class="project-card-img rounded clickable-image" data-full="Assets/Images/Bodywork/Thumbnail.png">
+                        <div class="card-content">
+                            <h5 class="mb-2">Low-drag Contour</h5>
+                            <p class="mb-1">An optimized contour reduces frontal curvature, delaying separation and improving top-speed efficiency.</p>
+                            <p class="text-muted small mb-0">Used in high-speed track configurations where cooling demand is lower.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="text-center py-4 bg-dark text-white mt-5">
+        <div class="container">
+            <p>&copy; 2025 Antonio Doral. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="Assets/JS/main.js"></script>
+        <!-- Lightbox modal -->
+        <div class="modal fade" id="imageLightbox" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen-sm-down modal-xl modal-dialog-centered">
+                <div class="modal-content bg-transparent border-0">
+                    <div class="modal-body p-0 text-center">
+                        <!-- Swiper -->
+                        <div class="swiper lightbox-swiper">
+                            <div class="swiper-wrapper">
+                                <!-- Slides will be injected here -->
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script>
+        // Simple tab switcher - keeps consistent style with existing project pages
+        (function(){
+            const items = document.querySelectorAll('.selector-item');
+            const panels = document.querySelectorAll('.panel');
+            items.forEach(btn=>{
+                btn.addEventListener('click', ()=>{
+                    items.forEach(i=>{ i.classList.remove('active'); i.setAttribute('aria-selected','false'); });
+                    panels.forEach(p=> p.classList.remove('active'));
+                    btn.classList.add('active');
+                    btn.setAttribute('aria-selected','true');
+                    const target = document.getElementById(btn.getAttribute('data-target'));
+                    if(target) target.classList.add('active');
+                });
+            });
+        })();
+
+        // Lightbox handler with Swiper
+        (function(){
+            const lightbox = new bootstrap.Modal(document.getElementById('imageLightbox'));
+            const swiperWrapper = document.querySelector('.lightbox-swiper .swiper-wrapper');
+            let swiperInstance = null;
+
+            document.querySelectorAll('.clickable-image').forEach((img, index) => {
+                img.style.cursor = 'zoom-in';
+                img.setAttribute('data-index', index);
+
+                img.addEventListener('click', () => {
+                    const parentPanel = img.closest('.panel');
+                    const images = Array.from(parentPanel.querySelectorAll('.clickable-image'));
+                    const clickedIndex = images.indexOf(img);
+
+                    swiperWrapper.innerHTML = images.map(i => {
+                        const src = i.getAttribute('data-full') || i.src;
+                        return `<div class="swiper-slide"><img src="${src}" alt="${i.alt || ''}" class="lightbox-img"></div>`;
+                    }).join('');
+
+                    if (swiperInstance) {
+                        swiperInstance.destroy(true, true);
+                    }
+
+                    swiperInstance = new Swiper('.lightbox-swiper', {
+                        loop: false,
+                        slidesPerView: 1,
+                        spaceBetween: 30,
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                        pagination: {
+                            el: '.swiper-pagination',
+                            clickable: true,
+                        },
+                        initialSlide: clickedIndex,
+                        keyboard: {
+                            enabled: true,
+                        },
+                    });
+
+                    lightbox.show();
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
