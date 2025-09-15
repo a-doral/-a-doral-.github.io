@@ -22,7 +22,7 @@
     <header class="project-header">
         <div class="container text-center">
             <h1 class="project-title">F1 Bodywork - CAD & Aerodynamics</h1>
-            <p class="project-subtitle">CAD modeling workflow and highlighted aerodynamic features for a high-performance Formula 1 sidepod and engine cover.</p>
+            <p class="project-subtitle">CAD modeling workflow and aerodynamic variants for a high-performance Formula 1 sidepod and engine cover design.</p>
         </div>
     </header>
 
@@ -30,20 +30,21 @@
         <!-- Horizontal selector -->
         <div class="selector-wrapper mb-4">
             <div class="selector" role="tablist" aria-label="Project sections">
-                <button class="selector-item active" data-target="cad" role="tab" aria-selected="true">CAD Creation</button>
-                <button class="selector-item" data-target="aero" role="tab" aria-selected="false">Aerodynamic Features</button>
+                <button class="selector-item active" data-target="cad" role="tab" aria-selected="true">CAD</button>
+                <button class="selector-item" data-target="aero" role="tab" aria-selected="false">Aerodynamics</button>
             </div>
         </div>
 
         <!-- Content panels -->
-        <div class="panel-container">
+        <div class="panel-container">   
             <section id="cad" class="panel active">
-                <h3 class="section-title">CAD Creation</h3>
-                <p>Overview of the CAD workflow: initial concept sketches, surface-based modeling for high-quality aesthetics, advanced surfacing tools to ensure manufacturable, continuous surfaces and tight curvature control.</p>
+                <h3 class="section-title">CAD Workflow</h3>
+                <p>Overview of the CAD workflow: Parametric design techniques for easy iteration changes and rapid concept development maintaining G1 continuity and legality checks.</p>
                 <ul class="methodology-list">
-                    <li class="methodology-item"><strong>Concept & Sketching:</strong> Rapid concept iterations and packaging studies to satisfy cooling and aerodynamic targets.</li>
-                    <li class="methodology-item"><strong>Reference Geometry:</strong> Parametric mounting points and packaging volumes established for component fitment.</li>
-                    <li class="methodology-item"><strong>Surface Modeling:</strong> High-quality surfacing (G2 continuity) using 3DExperience and SolidWorks surface tools.</li>
+                    <li class="methodology-item"><strong>Parametric design:</strong> All features are parametrised for rapid concept iterations and packaging studies to satisfy aerodynamic targets.
+                    <li class="methodology-item"><strong>File structure:</strong> Advanced and well-organised file structure to quickly understand and modify the design.</li>
+                    <li class="methodology-item"><strong>Surface Modeling:</strong> High-quality surfacing (G2 continuity) using 3DExperience.</li>
+                    <li class="methodology-item"><strong>Legality checks:</strong> Continuous checks throughout the design process to ensure compliance with F1 regulations.</li>
                 </ul>
                 <div class="mt-4">
                     <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm">
@@ -76,13 +77,8 @@
             </section>
 
             <section id="aero" class="panel">
-                <h3 class="section-title">Aerodynamic Features</h3>
+                <h3 class="section-title">Aerodynamic Design</h3>
                 <p>This section highlights design decisions taken to influence airflow, cooling, and downforce generation.</p>
-                <ul class="methodology-list">
-                    <li class="methodology-item"><strong>Sidepod Inlet Shaping:</strong> Optimized for internal ducting and radiator performance while minimising drag.</li>
-                    <li class="methodology-item"><strong>Engine Cover & Shark Fin:</strong> Designed to stabilise yaw behavior and smooth flow to the rear wing.</li>
-                    <li class="methodology-item"><strong>Underbody Interfaces:</strong> Smooth transitions to reduce separation and recover energy towards the diffuser.</li>
-                </ul>
                 <div class="mt-4">
                     <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm">
                         <img src="Assets/Images/Bodywork/Thumbnail.png" alt="Aero Variant" class="project-card-img rounded clickable-image" data-full="Assets/Images/Bodywork/Thumbnail.png">
