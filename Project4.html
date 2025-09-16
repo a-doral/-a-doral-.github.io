@@ -24,7 +24,7 @@
         <div class="container">
             <div class="text-center">
                 <h1 class="project-title">Advanced Vibration Analysis via Non-Invasive Image Recognition</h1>
-                <p class="project-subtitle">Developing a low-cost, high-fidelity system to analyze structural dynamics—a method with direct applications to understanding aeroelasticity in F1.</p>
+                <p class="project-subtitle">Developed a low-cost, non-invasive system to analyze structural dynamics. A method with direct applications to understanding aeroelasticity in F1.</p>
             </div>
         </div>
     </header>
@@ -76,47 +76,45 @@
         <div class="row g-5">
             <div class="col-lg-7">
                 <div class="thesis-badge mb-4">
-                    <span class="badge bg-primary">Bachelor's Thesis Project</span>
-                    <span class="badge bg-secondary">King Juan Carlos University, 2022</span>
+                    <span class="badge bg-primary">Aerospace Bachelor's Thesis</span>
+                    <span class="badge bg-success">Awarded 85% Grade</span>
+                    <span class="badge bg-secondary">King Juan Carlos University</span>
                 </div>
                 
                 <h3 class="section-title">Project Objective</h3>
-                <p>The goal was to validate a non-contact vibrational analysis method using image recognition as a faster, more cost-effective alternative to traditional accelerometer or strain gauge setups. This is critical in environments where mass loading from sensors would compromise the integrity of the results, such as with lightweight composite structures in motorsport.</p>
+                <p>The aim of this project was to design and validate a non-contact vibrational analysis method using image recognition as a faster, more cost-effective alternative to traditional accelerometer or strain gauge setups. This is critical in environments where mass loading from sensors would compromise the integrity of the results, such as with lightweight composite structures in motorsport.</p>
                 
-                <div class="pdf-download-section my-4 p-4 bg-light rounded">
-                    <div class="d-flex align-items-center justify-content-between">
-                        <div>
-                            <h5 class="mb-2">Full Thesis Document</h5>
-                            <p class="mb-0 text-muted">Download the complete bachelor's thesis document (PDF)</p>
+                <h3 class="section-title mt-4">Methodology</h3>
+                <p>A helicopter rotor blade was subjected to controlled frequency sweeps from a shaker. A high-speed camera recorded the response, and a custom MATLAB script was developed to process the images. The developed workflow is as follows:</p>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="methodology-item h-100">
+                            <img src="Assets/Images/Vibration/calibration.png" alt="Image Calibration" class="methodology-image">
+                            <div>
+                                <strong>Image calibration:</strong>
+                                Calibrated the images with a checkerboard pattern to ensure accurate measurements and avoid lens distortion.
+                            </div>
                         </div>
-                        <a href="Assets/Documents/Vibration_Analysis_Thesis.pdf" class="btn btn-primary d-flex align-items-center gap-2" target="_blank">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
-                                <polyline points="14 2 14 8 20 8"/>
-                                <path d="M12 18v-6"/>
-                                <path d="m9 15 3 3 3-3"/>
-                            </svg>
-                            Download PDF
-                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="methodology-item h-100">
+                            <img src="Assets/Images/Vibration/target features.png" alt="Feature Recognition" class="methodology-image">
+                            <div>
+                                <strong>Feature recognition and tracking:</strong>
+                                Used image recognition techniques to detect and track the targets throughout the video frames rejecting any false positives as shown in red in the image.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="methodology-item h-100">
+                            <img src="Assets/Images/Vibration/frecuency.png" alt="Data Analysis" class="methodology-image">
+                            <div>
+                                <strong>Data analysis:</strong>
+                                Analysed and postprocessed the data to evaluate the structural characteristics. Applied Fast Fourier Transform (FFT) to the data to identify dominant frequencies.
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <h3 class="section-title mt-4">Methodology</h3>
-                <p>A helicopter rotor blade was subjected to controlled frequency sweeps from a shaker. A high-speed camera recorded the response, and a custom MATLAB script was developed to perform the following:</p>
-                <ul class="methodology-list">
-                    <li class="methodology-item">
-                        <strong>Image Segmentation:</strong>
-                        Isolated color-calibrated targets against the background.
-                    </li>
-                    <li class="methodology-item">
-                        <strong>Centroid Tracking:</strong>
-                        Calculated the precise geometric center of each target in every video frame.
-                    </li>
-                    <li class="methodology-item">
-                        <strong>Data Transformation:</strong>
-                        Applied Fast Fourier Transform (FFT) to the displacement-time data to identify dominant frequencies.
-                    </li>
-                </ul>
             </div>
             
             <div class="col-lg-5">
@@ -124,11 +122,11 @@
                     <h4>Key Technical Outcomes</h4>
                     <div class="outcome-item">
                         <i data-lucide="check-circle-2"></i>
-                        <div>Identified natural frequencies within 2% of FEA predictions.</div>
+                        <div>Developed a non-invasive cost-effective method for vibrational analysis.</div>
                     </div>
                     <div class="outcome-item">
                         <i data-lucide="check-circle-2"></i>
-                        <div>Achieved sub-pixel measurement accuracy for displacement tracking.</div>
+                        <div>Achieved pixel measurement accuracy for displacement tracking.</div>
                     </div>
                     <div class="outcome-item">
                         <i data-lucide="check-circle-2"></i>
@@ -136,7 +134,7 @@
                     </div>
                     <div class="outcome-item">
                         <i data-lucide="check-circle-2"></i>
-                        <div>Reduced setup time by over 70% compared to traditional methods.</div>
+                        <div>Reduced setup time significantly compared to traditional methods.</div>
                     </div>
 
                     <h4 class="mt-5">Technology Stack</h4>
@@ -144,6 +142,7 @@
                         <span class="tech-stack-icon"><i data-lucide="file-code"></i>MATLAB</span>
                         <span class="tech-stack-icon"><i data-lucide="camera"></i>Image Processing</span>
                         <span class="tech-stack-icon"><i data-lucide="siren"></i>Signal Analysis (FFT)</span>
+                        <span class="tech-stack-icon"><i data-lucide="activity"></i>Vibrational Analysis</span>
                     </div>
                 </div>
             </div>

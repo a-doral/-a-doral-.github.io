@@ -22,7 +22,7 @@
     <header class="project-header">
         <div class="container text-center">
             <h1 class="project-title">F1 Bodywork - CAD & Aerodynamics</h1>
-            <p class="project-subtitle">CAD modeling workflow and aerodynamic variants for a high-performance Formula 1 sidepod and engine cover design.</p>
+            <p class="project-subtitle">CAD modeling workflow and aerodynamic variants for a high-performance Formula 1 sidepod and engine cover design. Made following the course Aerodynamics Design in Formula 1 by Motorsport Engineer Academy.</p>
         </div>
     </header>
 
@@ -38,74 +38,231 @@
         <!-- Content panels -->
         <div class="panel-container">   
             <section id="cad" class="panel active">
-                <h3 class="section-title">CAD Workflow</h3>
-                <p>Overview of the CAD workflow: Parametric design techniques for easy iteration changes and rapid concept development maintaining G1 continuity and legality checks.</p>
+                <h3 class="section-title">CAD Design Philosophy</h3>
+                <p>A high-performance CAD methodology focused on delivering aerodynamically critical, regulation-compliant surfaces with maximum iteration speed.</p>
                 <ul class="methodology-list">
-                    <li class="methodology-item"><strong>Parametric design:</strong> All features are parametrised for rapid concept iterations and packaging studies to satisfy aerodynamic targets.
-                    <li class="methodology-item"><strong>File structure:</strong> Advanced and well-organised file structure to quickly understand and modify the design.</li>
-                    <li class="methodology-item"><strong>Surface Modeling:</strong> High-quality surfacing (G2 continuity) using 3DExperience.</li>
-                    <li class="methodology-item"><strong>Legality checks:</strong> Continuous checks throughout the design process to ensure compliance with F1 regulations.</li>
+                    <li class="methodology-item"><strong>Rapid Parametric Iteration:</strong> The core architecture is built around a parametrised skeleton model, enabling rapid development of geometry concepts while maintaining a robust design for stable updates.</li>
+                    <li class="methodology-item"><strong>Class-A Surface Quality:</strong> Design focused on high quality surfaces to G1 and G2 curvature continuity in 3DExperience CATIA, ensuring the greatest manufacturing and aerodynamic standards.</li>
+                    <li class="methodology-item"><strong>Legal parts save time:</strong> Production and legality checks integrated into the design to ensure compliance with F1 regulations and manufacturing requirements.</li>
+                    <li class="methodology-item"><strong>Built for the team:</strong> Developed with a logical file structure, clear naming and custom colours to facilitate collaboration and knowledge sharing with other engineers.</li>
                 </ul>
                 <div class="mt-4">
                     <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm">
-                        <img src="Assets/Images/Bodywork/Thumbnail.png" alt="CAD Detail" class="project-card-img rounded clickable-image" data-full="Assets/Images/Bodywork/Thumbnail.png">
+                        <img src="Assets/Images/Bodywork/Skeleton.png" alt="CAD Detail" class="project-card-img rounded clickable-image" data-full="Assets/Images/Bodywork/Skeleton.png">
                         <div class="card-content">
-                            <h5 class="mb-2">Parametric Tangent Updates</h5>
-                            <p class="mb-1">Tangent lines created to update the design parametrically while maintaining G1 connectivity across adjacent surfaces. This preserves smooth visual flow and ensures downstream aerodynamic consistency.</p>
-                            <p class="text-muted small mb-0">Tools: 3DExperience / SolidWorks — Surfacing & parameter-driven sketches.</p>
+                            <h5 class="mb-2">Skeleton-Driven Architecture</h5>
+                            <p class="mb-1">The bodywork's form is governed by a master skeleton of wireframe geometry. This approach ensures design intent is maintained and allows for rapid, predictable updates to surfaces when key parameters are modified.</p>
+                            <p class="text-muted small mb-2">The color-coded system defines the role of each element:</p>
+                            <ul class="list-unstyled small text-muted mb-0">
+                                <li><span style="color: #E91E63;">■</span> Pink: Primary tangent elements.</li>
+                                <li><span style="color: #FF9800;">■</span> Orange: Cross-sectional profiles.</li>
+                                <li><span style="color: #2196F3;">■</span> Blue: Guide curves for complex surfaces.</li>
+                                <li><span style="color: #FFC107;">■</span> Yellow: Key reference planes.</li>
+                            </ul>
                         </div>
                     </div>
 
                     <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm mt-3">
-                        <img src="Assets/Images/Bodywork/Thumbnail.png" alt="CAD Detail 2" class="project-card-img rounded clickable-image" data-full="Assets/Images/Bodywork/Thumbnail.png">
+                        <img src="Assets/Images/Bodywork/Porcupine.png" alt="CAD Detail 2" class="project-card-img rounded clickable-image" data-full="Assets/Images/Bodywork/Porcupine.png">
                         <div class="card-content">
-                            <h5 class="mb-2">Surface Fairing & Continuity</h5>
-                            <p class="mb-1">Applied fairing operations to improve curvature continuity and eliminate small surface undulations that cause numerical noise during CFD meshing.</p>
-                            <p class="text-muted small mb-0">Outcome: cleaner meshes and more robust CFD convergence.</p>
+                            <h5 class="mb-2">Curvature and regulation analysis</h5>
+                            <p class="mb-1">Used Porcupine Curvature analysis to validate surface quality and verify compliance with FIA regulations. In this case, various intersecting curves were created along the surface to check the radius of the sections at a 100 mm interval. The goal was to comply with the rule that states that the minimum radius of any cross-section of the bodywork is 75 mm.</p>
+                            <p class="text-muted small mb-0"><strong>Outcome:</strong> Guaranteed legal surfaces with high aerodynamic quality, ready for CFD with no rework.</p>
                         </div>
                     </div>
 
                     <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm mt-3">
-                        <img src="Assets/Images/Bodywork/Thumbnail.png" alt="CAD Detail 3" class="project-card-img rounded clickable-image" data-full="Assets/Images/Bodywork/Thumbnail.png">
+                        <img src="Assets/Images/Bodywork/structure.png" alt="CAD Detail 3" class="project-card-img rounded clickable-image" data-full="Assets/Images/Bodywork/structure.png">
                         <div class="card-content">
-                            <h5 class="mb-2">Parametric Mounting Features</h5>
-                            <p class="mb-1">Parametrised mounting bosses and cutouts allow quick adaptation to different packaging constraints without reworking the main surfacing.</p>
-                            <p class="text-muted small mb-0">Benefit: faster integration and less rework during packaging iterations.</p>
+                            <h5 class="mb-2">Structured for Collaboration</h5>
+                            <p class="mb-1">The model features a clean, logical tree structure (reference geometry, parts and trimmed output) with clear inner geometrical sets (Input, Construction, Output) and consistent naming conventions.  This structure is critical for team integration, minimizing handover friction and accelerating the development loop.</p>
+                            <p class="text-muted small mb-0"><strong>Benefit:</strong> Reduced time for other engineers to understand, use, and build upon the design.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             <section id="aero" class="panel">
-                <h3 class="section-title">Aerodynamic Design</h3>
-                <p>This section highlights design decisions taken to influence airflow, cooling, and downforce generation.</p>
-                <div class="mt-4">
-                    <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm">
-                        <img src="Assets/Images/Bodywork/Thumbnail.png" alt="Aero Variant" class="project-card-img rounded clickable-image" data-full="Assets/Images/Bodywork/Thumbnail.png">
-                        <div class="card-content">
-                            <h5 class="mb-2">Geometry Variants & Purpose</h5>
-                            <p class="mb-1">Multiple geometry variants were evaluated: one prioritising cooling flow, another prioritising low drag for high-speed stability. Each variant was parameterised for rapid CFD study iterations.</p>
-                            <p class="text-muted small mb-0">Notes: Variant A — increased inlet area; Variant B — reduced frontal curvature for lower drag.</p>
-                        </div>
+                <!-- Sub-selector for Aero tab -->
+                <div class="selector-wrapper sub-selector-wrapper mb-4">
+                    <div class="selector sub-selector" role="tablist" aria-label="Aerodynamics sections">
+                        <button class="selector-item active" data-target="variants" role="tab" aria-selected="true">Variants</button>
+                        <button class="selector-item" data-target="comparison" role="tab" aria-selected="false">Comparison</button>
                     </div>
+                </div>
 
-                    <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm mt-3">
-                        <img src="Assets/Images/Bodywork/Thumbnail.png" alt="Aero Variant 2" class="project-card-img rounded clickable-image" data-full="Assets/Images/Bodywork/Thumbnail.png">
-                        <div class="card-content">
-                            <h5 class="mb-2">Cooling-focused Inlet</h5>
-                            <p class="mb-1">A widened inlet variant improves mass flow to radiators at low speeds, reducing peak temperatures during city-like circuits.</p>
-                            <p class="text-muted small mb-0">Trade-off: slight increase in drag, mitigated with internal duct shaping.</p>
-                        </div>
-                    </div>
+                <div class="panel-container sub-panel-container">
+                    <section id="variants" class="panel active">
+                        <h3 class="section-title">Aerodynamic Design Variants</h3>
+                        <p>Various aerodynamic packages were designed to explore different approaches to airflow management. These designs maintain the same side pod inlet while optimizing the bodywork for improved performance.</p>
+                        <div class="mt-4">
+                            <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm">
+                                <div class="image-gallery">
+                                    <img src="Assets/Images/Bodywork/ISO_Smooth.png" alt="Smooth Design ISO" class="project-card-img rounded clickable-image" data-full="Assets/Images/Bodywork/ISO_Smooth.png">
+                                    <div class="thumbnail-group">
+                                        <img src="Assets/Images/Bodywork/TOP_SMOOTH.png" alt="Smooth Design Top" class="project-card-thumbnail rounded clickable-image" data-full="Assets/Images/Bodywork/TOP_SMOOTH.png">
+                                        <img src="Assets/Images/Bodywork/BACK_SMOOTH.png" alt="Smooth Design Back" class="project-card-thumbnail rounded clickable-image" data-full="Assets/Images/Bodywork/BACK_SMOOTH.png">
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h5 class="mb-2">Baseline Design</h5>
+                                    <p class="mb-1">A concept focused on smooth surfaces with minimal directional changes and disruptions of airflow. This design allows for a less complicated powertrain package.</p>
+                                    <ul class="list-unstyled small mt-2">
+                                        <li class="benefit-item"><i data-lucide="check-circle-2"></i>Simplified surfaces and airflow management</li>
+                                        <li class="benefit-item"><i data-lucide="check-circle-2"></i>Easier to comply with regulations</li>
+                                    </ul>
+                                </div>
+                            </div>
 
-                    <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm mt-3">
-                        <img src="Assets/Images/Bodywork/Thumbnail.png" alt="Aero Variant 3" class="project-card-img rounded clickable-image" data-full="Assets/Images/Bodywork/Thumbnail.png">
-                        <div class="card-content">
-                            <h5 class="mb-2">Low-drag Contour</h5>
-                            <p class="mb-1">An optimized contour reduces frontal curvature, delaying separation and improving top-speed efficiency.</p>
-                            <p class="text-muted small mb-0">Used in high-speed track configurations where cooling demand is lower.</p>
+                            <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm mt-3">
+                                <div class="image-gallery">
+                                    <img src="Assets/Images/Bodywork/ISO_ZERO.png" alt="Size Zero Design ISO" class="project-card-img rounded clickable-image" data-full="Assets/Images/Bodywork/ISO_ZERO.png">
+                                    <div class="thumbnail-group">
+                                        <img src="Assets/Images/Bodywork/TOP_ZERO.png" alt="Size Zero Design Top" class="project-card-thumbnail rounded clickable-image" data-full="Assets/Images/Bodywork/TOP_ZERO.png">
+                                        <img src="Assets/Images/Bodywork/BACK_ZERO.png" alt="Size Zero Design Back" class="project-card-thumbnail rounded clickable-image" data-full="Assets/Images/Bodywork/BACK_ZERO.png">
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h5 class="mb-2">Size-Zero Design</h5>
+                                    <p class="mb-1">This variant dramatically tapers the bodywork to minimize volume, aiming to improve airflow to the rear aerodynamic components.</p>
+                                    <ul class="list-unstyled small mt-2">
+                                        <li class="benefit-item"><i data-lucide="check-circle-2"></i>Reduced bodywork volume.</li>
+                                        <li class="benefit-item"><i data-lucide="check-circle-2"></i>Increased aerodynamic efficiency and improved airflow to rear-end</li>
+                                        <li class="tradeoff-item"><i data-lucide="x-circle"></i>Requires a highly compact powertrain package</li>
+                                        <li class="tradeoff-item"><i data-lucide="x-circle"></i>More difficult to manufacture</li>
+                                        <li class="tradeoff-item"><i data-lucide="x-circle"></i>Reduces cooling performance</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm mt-3">
+                                <div class="image-gallery">
+                                    <img src="Assets/Images/Bodywork/ISO_WRAP.png" alt="Shrink Wrap Design ISO" class="project-card-img rounded clickable-image" data-full="Assets/Images/Bodywork/ISO_WRAP.png">
+                                    <div class="thumbnail-group">
+                                        <img src="Assets/Images/Bodywork/TOP_WRAP.png" alt="Shrink Wrap Design Top" class="project-card-thumbnail rounded clickable-image" data-full="Assets/Images/Bodywork/TOP_WRAP.png">
+                                        <img src="Assets/Images/Bodywork/BACK_WRAP.png" alt="Shrink Wrap Design Back" class="project-card-thumbnail rounded clickable-image" data-full="Assets/Images/Bodywork/BACK_WRAP.png">
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h5 class="mb-2">Shrink-Wrap Design</h5>
+                                    <p class="mb-1">A concept intentionally designed too tight that covers the components that stick out with blisters, achieving an even bigger effect than the zero-size concept.</p>
+                                    <ul class="list-unstyled small mt-2">
+                                        <li class="benefit-item"><i data-lucide="check-circle-2"></i>The disruption of the flow caused by the blisters is minimal and worth the trade-offs.</li>
+                                        <li class="benefit-item"><i data-lucide="check-circle-2"></i>Volume reduced to the minimum</li>
+                                        <li class="tradeoff-item"><i data-lucide="x-circle"></i>Stricter manufacturing, cooling, and powertrain constraints than size-zero</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm mt-3">
+                                <div class="image-gallery">
+                                    <img src="Assets/Images/Bodywork/ISO_UNDER.png" alt="Undercut Design ISO" class="project-card-img rounded clickable-image" data-full="Assets/Images/Bodywork/ISO_UNDER.png">
+                                    <div class="thumbnail-group">
+                                        <img src="Assets/Images/Bodywork/TOP_UNDER.png" alt="Undercut Design Top" class="project-card-thumbnail rounded clickable-image" data-full="Assets/Images/Bodywork/TOP_UNDER.png">
+                                        <img src="Assets/Images/Bodywork/BACK_UNDER.png" alt="Undercut Design Back" class="project-card-thumbnail rounded clickable-image" data-full="Assets/Images/Bodywork/BACK_UNDER.png">
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h5 class="mb-2">Undercut Design</h5>
+                                    <p class="mb-1">This design features a deep undercut (coke-bottle with minimal curvature) to guide clean energetic air along the side of the bodywork with minimal directional changes, enhancing the performance of the rear aerodynamic components. This design tests the robustness of the wireframe and CAD design.</p>
+                                    <ul class="list-unstyled small mt-2">
+                                        <li class="benefit-item"><i data-lucide="check-circle-2"></i>Better airflow around the sides of the bodywork</li>
+                                        <li class="tradeoff-item"><i data-lucide="x-circle"></i>Center of gravity is higher due to component repositioning</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm mt-3">
+                                <div class="image-gallery">
+                                    <img src="Assets/Images/Bodywork/ISO_DOWN.png" alt="High Downwash Design ISO" class="project-card-img rounded clickable-image" data-full="Assets/Images/Bodywork/ISO_DOWN.png">
+                                    <div class="thumbnail-group">
+                                        <img src="Assets/Images/Bodywork/TOP_DOWN.png" alt="High Downwash Design Top" class="project-card-thumbnail rounded clickable-image" data-full="Assets/Images/Bodywork/TOP_DOWN.png">
+                                        <img src="Assets/Images/Bodywork/BACK_DOWN.png" alt="High Downwash Design Back" class="project-card-thumbnail rounded clickable-image" data-full="Assets/Images/Bodywork/BACK_DOWN.png">
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h5 class="mb-2">High Downwash Design</h5>
+                                    <p class="mb-1">This concept uses an extreme coke-bottle line to direct clean airflow downwards from the top of the car. It also allows for more components to be positioned in the side pods, reducing the height of the center of gravity.</p>
+                                    <ul class="list-unstyled small mt-2">
+                                        <li class="benefit-item"><i data-lucide="check-circle-2"></i>Pulls clean air from the top of the car to improve airflow to rear components</li>
+                                        <li class="tradeoff-item"><i data-lucide="x-circle"></i>Limited cooling performance due to restricted radiator exit</li>
+                                        <li class="tradeoff-item"><i data-lucide="x-circle"></i>Requires highly robust CAD due to the surface complexity</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </section>
+                    <section id="comparison" class="panel">
+                        <h3 class="section-title">Cross-Section Comparison</h3>
+                        <p>Use the slider to move along the car's X-axis and compare the cross-sectional profiles of the five aerodynamic variants at that specific location.</p>
+                        
+                        <div class="comparison-container mt-4">
+                            <div class="comparison-viewer">
+                                <div class="comparison-image-wrapper">
+                                    <img id="section-indicator-img" src="Assets/Images/Bodywork/X2500.png" alt="Section position indicator" class="img-fluid rounded shadow-sm clickable-image" data-full="Assets/Images/Bodywork/X2500.png">
+                                    <div class="comparison-label">Position View</div>
+                                </div>
+                                <div class="comparison-image-wrapper">
+                                    <img id="section-comparison-img" src="Assets/Images/Bodywork/2500.png" alt="Section profiles comparison" class="img-fluid rounded shadow-sm clickable-image" data-full="Assets/Images/Bodywork/2500.png">
+                                    <div class="comparison-label">Profiles View</div>
+                                </div>
+                            </div>
+                            <div class="comparison-controls mt-4">
+                                <label for="x-coordinate-slider" class="form-label fw-bold">X-Coordinate: <span id="x-coordinate-value" class="badge bg-primary">2500 mm</span></label>
+                                <input type="range" class="form-range" id="x-coordinate-slider" min="0" max="4" value="0" step="1">
+                            </div>
+                        </div>
+
+                        <div class="comparison-legend mt-4">
+                            <div class="legend-item"><span class="legend-color-swatch" style="background-color: #007bff;"></span> Baseline</div>
+                            <div class="legend-item"><span class="legend-color-swatch" style="background-color: #fd7e14;"></span> Size-Zero</div>
+                            <div class="legend-item"><span class="legend-color-swatch" style="background-color: #28a745;"></span> Shrink-Wrap</div>
+                            <div class="legend-item"><span class="legend-color-swatch" style="background-color: #dc3545;"></span> Undercut</div>
+                            <div class="legend-item"><span class="legend-color-swatch" style="background-color: #6f42c1;"></span> High Downwash</div>
+                        </div>
+
+                        <!-- Side-by-Side Comparison Card -->
+                        <div class="side-by-side-comparison-container mt-5">
+                            <h4 class="section-title text-center mb-4">Detailed View Comparison</h4>
+                            <div class="sbs-controls">
+                                <div class="sbs-selector-group">
+                                    <label for="variant-selector-left" class="form-label">Select Left Variant</label>
+                                    <select id="variant-selector-left" class="form-select">
+                                        <!-- Options will be populated by JS -->
+                                    </select>
+                                </div>
+                                <div class="sbs-selector-group">
+                                    <label for="variant-selector-right" class="form-label">Select Right Variant</label>
+                                    <select id="variant-selector-right" class="form-select">
+                                        <!-- Options will be populated by JS -->
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="sbs-image-grid mt-4">
+                                <!-- ISO View -->
+                                <div class="sbs-view-label">Isometric View</div>
+                                <div class="sbs-image-pair">
+                                    <img id="sbs-iso-left" src="" alt="Left variant isometric view" class="img-fluid rounded">
+                                    <img id="sbs-iso-right" src="" alt="Right variant isometric view" class="img-fluid rounded">
+                                </div>
+
+                                <!-- Top View -->
+                                <div class="sbs-view-label">Top View</div>
+                                <div class="sbs-image-pair">
+                                    <img id="sbs-top-left" src="" alt="Left variant top view" class="img-fluid rounded">
+                                    <img id="sbs-top-right" src="" alt="Right variant top view" class="img-fluid rounded">
+                                </div>
+
+                                <!-- Back View -->
+                                <div class="sbs-view-label">Back View</div>
+                                <div class="sbs-image-pair">
+                                    <img id="sbs-back-left" src="" alt="Left variant back view" class="img-fluid rounded">
+                                    <img id="sbs-back-right" src="" alt="Right variant back view" class="img-fluid rounded">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </section>
         </div>
@@ -119,6 +276,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script src="Assets/JS/main.js"></script>
         <!-- Lightbox modal -->
         <div class="modal fade" id="imageLightbox" tabindex="-1" aria-hidden="true">
@@ -140,19 +298,49 @@
             </div>
         </div>
     <script>
-        // Simple tab switcher - keeps consistent style with existing project pages
+        // Enhanced tab switcher to handle main tabs and sub-tabs with default states
         (function(){
-            const items = document.querySelectorAll('.selector-item');
-            const panels = document.querySelectorAll('.panel');
-            items.forEach(btn=>{
-                btn.addEventListener('click', ()=>{
-                    items.forEach(i=>{ i.classList.remove('active'); i.setAttribute('aria-selected','false'); });
-                    panels.forEach(p=> p.classList.remove('active'));
-                    btn.classList.add('active');
-                    btn.setAttribute('aria-selected','true');
-                    const target = document.getElementById(btn.getAttribute('data-target'));
-                    if(target) target.classList.add('active');
+            // Handle all tab clicks with a single delegated listener
+            document.querySelector('main').addEventListener('click', function(e) {
+                if (!e.target.matches('.selector-item')) return;
+
+                const button = e.target;
+                const parentSelector = button.closest('.selector');
+                const targetId = button.getAttribute('data-target');
+                const targetPanel = document.getElementById(targetId);
+
+                // Deactivate sibling buttons and their panels
+                parentSelector.querySelectorAll('.selector-item').forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-selected', 'false');
+                    const panel = document.getElementById(btn.getAttribute('data-target'));
+                    if (panel) panel.classList.remove('active');
                 });
+
+                // Activate clicked button and its panel
+                button.classList.add('active');
+                button.setAttribute('aria-selected', 'true');
+                if (targetPanel) targetPanel.classList.add('active');
+
+                // --- Special logic for the main 'Aerodynamics' tab ---
+                // If the 'aero' tab was just clicked, reset its sub-tabs to default.
+                if (targetId === 'aero') {
+                    const subSelector = targetPanel.querySelector('.sub-selector');
+                    const variantsButton = subSelector.querySelector('[data-target="variants"]');
+                    const comparisonButton = subSelector.querySelector('[data-target="comparison"]');
+                    const variantsPanel = document.getElementById('variants');
+                    const comparisonPanel = document.getElementById('comparison');
+
+                    // Deactivate comparison
+                    comparisonButton.classList.remove('active');
+                    comparisonButton.setAttribute('aria-selected', 'false');
+                    if (comparisonPanel) comparisonPanel.classList.remove('active');
+
+                    // Activate variants
+                    variantsButton.classList.add('active');
+                    variantsButton.setAttribute('aria-selected', 'true');
+                    if (variantsPanel) variantsPanel.classList.add('active');
+                }
             });
         })();
 
@@ -162,46 +350,144 @@
             const swiperWrapper = document.querySelector('.lightbox-swiper .swiper-wrapper');
             let swiperInstance = null;
 
-            document.querySelectorAll('.clickable-image').forEach((img, index) => {
+            // Use event delegation for clickable images
+            document.querySelector('main').addEventListener('click', function(e) {
+                const img = e.target.closest('.clickable-image');
+                if (!img) return;
+
                 img.style.cursor = 'zoom-in';
-                img.setAttribute('data-index', index);
 
-                img.addEventListener('click', () => {
-                    const parentPanel = img.closest('.panel');
-                    const images = Array.from(parentPanel.querySelectorAll('.clickable-image'));
-                    const clickedIndex = images.indexOf(img);
+                const parentPanel = img.closest('.panel.active');
+                // Find all images within the currently active main tab content, including sub-tabs
+                const images = Array.from(parentPanel.querySelectorAll('.clickable-image'));
+                const clickedIndex = images.indexOf(img);
 
-                    swiperWrapper.innerHTML = images.map(i => {
-                        const src = i.getAttribute('data-full') || i.src;
-                        return `<div class="swiper-slide"><img src="${src}" alt="${i.alt || ''}" class="lightbox-img"></div>`;
-                    }).join('');
+                swiperWrapper.innerHTML = images.map(i => {
+                    const src = i.getAttribute('data-full') || i.src;
+                    return `<div class="swiper-slide"><img src="${src}" alt="${i.alt || ''}" class="lightbox-img"></div>`;
+                }).join('');
 
-                    if (swiperInstance) {
-                        swiperInstance.destroy(true, true);
-                    }
+                if (swiperInstance) {
+                    swiperInstance.destroy(true, true);
+                }
 
-                    swiperInstance = new Swiper('.lightbox-swiper', {
-                        loop: false,
-                        slidesPerView: 1,
-                        spaceBetween: 30,
-                        navigation: {
-                            nextEl: '.swiper-button-next',
-                            prevEl: '.swiper-button-prev',
-                        },
-                        pagination: {
-                            el: '.swiper-pagination',
-                            clickable: true,
-                        },
-                        initialSlide: clickedIndex,
-                        keyboard: {
-                            enabled: true,
-                        },
-                    });
-
-                    lightbox.show();
+                swiperInstance = new Swiper('.lightbox-swiper', {
+                    loop: false,
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    initialSlide: clickedIndex,
+                    keyboard: {
+                        enabled: true,
+                    },
                 });
+
+                lightbox.show();
             });
         })();
+
+        // Comparison Slider Handler
+        (function() {
+            const slider = document.getElementById('x-coordinate-slider');
+            if (!slider) return;
+
+            const comparisonData = [
+                { x: '2500', indicator: 'X2500.png', section: '2500.png' },
+                { x: '2600', indicator: 'X2600.png', section: '2600.png' },
+                { x: '2800', indicator: 'X2800.png', section: '2800.png' },
+                { x: '2900', indicator: 'X2900.png', section: '2900.png' },
+                { x: '3150', indicator: 'X3150.png', section: '3150.png' }
+            ];
+
+            const indicatorImg = document.getElementById('section-indicator-img');
+            const comparisonImg = document.getElementById('section-comparison-img');
+            const valueLabel = document.getElementById('x-coordinate-value');
+            const imageBasePath = 'Assets/Images/Bodywork/';
+
+            slider.addEventListener('input', function() {
+                const index = parseInt(this.value, 10);
+                const data = comparisonData[index];
+
+                if (data) {
+                    indicatorImg.src = imageBasePath + data.indicator;
+                    comparisonImg.src = imageBasePath + data.section;
+                    valueLabel.textContent = `${data.x} mm`;
+                }
+            });
+        })();
+
+        // Side-by-Side Comparison Handler
+        (function() {
+            const variantData = {
+                'smooth': { name: 'Baseline', iso: 'ISO_Smooth.png', top: 'TOP_SMOOTH.png', back: 'BACK_SMOOTH.png' },
+                'zero': { name: 'Size-Zero', iso: 'ISO_ZERO.png', top: 'TOP_ZERO.png', back: 'BACK_ZERO.png' },
+                'wrap': { name: 'Shrink-Wrap', iso: 'ISO_WRAP.png', top: 'TOP_WRAP.png', back: 'BACK_WRAP.png' },
+                'under': { name: 'Undercut', iso: 'ISO_UNDER.png', top: 'TOP_UNDER.png', back: 'BACK_UNDER.png' },
+                'down': { name: 'High Downwash', iso: 'ISO_DOWN.png', top: 'TOP_DOWN.png', back: 'BACK_DOWN.png' }
+            };
+            const imageBasePath = 'Assets/Images/Bodywork/';
+
+            const selectorLeft = document.getElementById('variant-selector-left');
+            const selectorRight = document.getElementById('variant-selector-right');
+
+            if (!selectorLeft || !selectorRight) return;
+
+            const images = {
+                left: {
+                    iso: document.getElementById('sbs-iso-left'),
+                    top: document.getElementById('sbs-top-left'),
+                    back: document.getElementById('sbs-back-left')
+                },
+                right: {
+                    iso: document.getElementById('sbs-iso-right'),
+                    top: document.getElementById('sbs-top-right'),
+                    back: document.getElementById('sbs-back-right')
+                }
+            };
+
+            function populateSelectors() {
+                let options = '';
+                for (const key in variantData) {
+                    options += `<option value="${key}">${variantData[key].name}</option>`;
+                }
+                selectorLeft.innerHTML = options;
+                selectorRight.innerHTML = options;
+
+                // Set default selections
+                selectorLeft.value = 'smooth';
+                selectorRight.value = 'zero';
+            }
+
+            function updateImages(side) {
+                const selector = (side === 'left') ? selectorLeft : selectorRight;
+                const selectedKey = selector.value;
+                const variant = variantData[selectedKey];
+
+                if (variant) {
+                    images[side].iso.src = imageBasePath + variant.iso;
+                    images[side].top.src = imageBasePath + variant.top;
+                    images[side].back.src = imageBasePath + variant.back;
+                }
+            }
+
+            selectorLeft.addEventListener('change', () => updateImages('left'));
+            selectorRight.addEventListener('change', () => updateImages('right'));
+
+            // Initial population and image setup
+            populateSelectors();
+            updateImages('left');
+            updateImages('right');
+        })();
+    </script>
+    <script>
+        lucide.createIcons();
     </script>
 </body>
 </html>
