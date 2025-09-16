@@ -23,11 +23,12 @@
     <header class="project-header">
         <div class="container">
             <div class="text-center">
-                <h1 class="project-title">Non Linear Model Predictive Controller for an AUV</h1>
-                <p class="project-subtitle">Developed an advanced controller for an autonomous quadcopter to optimize its flight path in real-time during wind turbine inspections.</p>
+                <h1 class="project-title">Advanced Vehicle Control: Non-Linear MPC for Autonomous Systems</h1>
+                <p class="project-subtitle">Development and validation of a high-fidelity NMPC in C++ and MATLAB for real-time trajectory optimization of a 6-DOF dynamic system.</p>
             </div>
         </div>
     </header>
+
 
     <main class="container">
 
@@ -41,67 +42,76 @@
                 </div>
                 
                 <h3 class="section-title">Project Objective</h3>
-                <p>The aim of this project was to design and validate a non-contact vibrational analysis method using image recognition as a faster, more cost-effective alternative to traditional accelerometer or strain gauge setups. This is critical in environments where mass loading from sensors would compromise the integrity of the results, such as with lightweight composite structures in motorsport.</p>
-                
+                <p>The aim of this project was to design and validate an advanced optimal control method based on a non-linear model predictive controller. This approach allows for real-time control optimization and improved performance in dynamic environments.</p>
+
                 <h3 class="section-title mt-4">Methodology</h3>
-                <p>A helicopter rotor blade was subjected to controlled frequency sweeps from a shaker. A high-speed camera recorded the response, and a custom MATLAB script was developed to process the images. The developed workflow is as follows:</p>
+                <p>The project followed a systematic workflow, from first-principles modeling to simulation-based validation, to create a robust and efficient control system.</p>
+
                 <div class="row g-4">
-                    <div class="col-md-4">
+                    <div class="col-12">
                         <div class="methodology-item h-100">
-                            <img src="Assets/Images/NMPC/control.png" alt="Control System" class="methodology-image">
+                            <img src="Assets/Images/NMPC/model.png" alt="System Model" class="methodology-image">
                             <div>
-                                <strong>Image calibration:</strong>
-                                Calibrated the images with a checkerboard pattern to ensure accurate measurements and avoid lens distortion.
+                                <strong>Non-Linear System Modeling:</strong>
+                                Developed a high-fidelity, non-linear dynamic model representing the vehicle's 6 Degrees of Freedom. The model accurately captured forces, moments, gyroscopic effects, and actuator dynamics to serve as the predictive core of the controller.
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-12">
                         <div class="methodology-item h-100">
-                            <img src="Assets/Images/NMPC/model.png" alt="Model" class="methodology-image">
+                            <img src="Assets/Images/NMPC/control.png" alt="NMPC Implementation" class="methodology-image">
                             <div>
-                                <strong>Feature recognition and tracking:</strong>
-                                Used image recognition techniques to detect and track the targets throughout the video frames rejecting any false positives as shown in red in the image.
+                                <strong>NMPC Formulation & Implementation:</strong>
+                                Formulated the optimal control problem using the CasADi framework in C++ and MATLAB. A cost function was designed to minimize tracking error and control effort, subject to realistic state and actuator constraints. The optimization problem was solved using the IPOPT algorithm.
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-12">
                         <div class="methodology-item h-100">
-                            <img src="Assets/Images/NMPC/trajecvtory.png" alt="Trajectory" class="methodology-image">
+                            <img src="Assets/Images/NMPC/data.png" alt="Validation Simulation" class="methodology-image">
                             <div>
-                                <strong>Data analysis:</strong>
-                                Analysed and postprocessed the data to evaluate the structural characteristics. Applied Fast Fourier Transform (FFT) to the data to identify dominant frequencies.
+                                <strong>Simulation & Validation:</strong>
+                                Conducted extensive simulations to validate controller performance on a simulator developed in MATLAB. Scenarios included aggressive maneuvers, trajectory following under significant external wind loads, and analysis of the controller's sensitivity to model inaccuracies.
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
             <div class="col-lg-5">
                 <div class="key-outcomes">
                     <h4>Key Technical Outcomes</h4>
                     <div class="outcome-item">
-                        <i data-lucide="check-circle-2"></i>
-                        <div>Developed a non-invasive cost-effective method for vibrational analysis.</div>
+                        <div class="icon-container">
+                            <i data-lucide="check-circle-2" size="20"></i>
+                        </div>
+                        <div>Complex Vehicle Dynamics: Proved ability to model and control a highly non-linear 6-DOF system through an advanced optimal control approach.</div>
                     </div>
                     <div class="outcome-item">
-                        <i data-lucide="check-circle-2"></i>
-                        <div>Achieved pixel measurement accuracy for displacement tracking.</div>
+                        <div class="icon-container">
+                            <i data-lucide="check-circle-2" size="20"></i>
+                        </div>
+                        <div>Optimized a trajectory while minimizing control effort and maximizing tracking accuracy.</div>
                     </div>
                     <div class="outcome-item">
-                        <i data-lucide="check-circle-2"></i>
-                        <div>Validated a non-invasive method suitable for aeroelastic analysis.</div>
+                        <div class="icon-container">
+                            <i data-lucide="check-circle-2" size="20"></i>
+                        </div>
+                        <div>Real-Time C++: Developed and validated the controller in C++ and MATLAB.</div>
                     </div>
                     <div class="outcome-item">
-                        <i data-lucide="check-circle-2"></i>
-                        <div>Reduced setup time significantly compared to traditional methods.</div>
+                        <div class="icon-container">
+                            <i data-lucide="check-circle-2" size="20"></i>
+                        </div>
+                        <div>Successfully implemented CasADi (open-source tool for nonlinear optimization and algorithmic differentiation) and demonstrated advanced mathematical knowledge.</div>
                     </div>
 
                     <h4 class="mt-5">Technology Stack</h4>
                     <div>
                         <span class="tech-stack-icon"><i data-lucide="file-code"></i>MATLAB</span>
-                        <span class="tech-stack-icon"><i data-lucide="camera"></i>Image Processing</span>
-                        <span class="tech-stack-icon"><i data-lucide="siren"></i>Signal Analysis (FFT)</span>
-                        <span class="tech-stack-icon"><i data-lucide="activity"></i>Vibrational Analysis</span>
+                        <span class="tech-stack-icon"><i data-lucide="calculator"></i>Mathematical Modelling</span>
+                        <span class="tech-stack-icon"><i data-lucide="target"></i>Advanced Optimal Control</span>
+                        <span class="tech-stack-icon"><i data-lucide="move"></i>Vehicle Dynamics</span>
+                        <span class="tech-stack-icon"><i data-lucide="cpu"></i>CasADi / IPOPT</span>
                     </div>
                 </div>
             </div>

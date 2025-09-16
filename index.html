@@ -370,11 +370,38 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-light">
-        <div class="container text-center">
-            <h2>Get In Touch</h2>
-            <p class="lead">I'm currently seeking new opportunities. Please feel free to reach out.</p>
-            <p><strong>Email:</strong> <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-center mb-5">
+                        <h2 class="display-5 fw-bold text-dark mb-3">Get In Touch</h2>
+                        <p class="lead text-muted">I'm currently seeking new opportunities. Let's connect and discuss how we can work together.</p>
+                    </div>
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-md-6">
+                            <div class="contact-card p-4 h-100">
+                                <div class="contact-icon mb-3">
+                                    <i data-lucide="mail" size="48"></i>
+                                </div>
+                                <h5 class="fw-semibold mb-2">Email</h5>
+                                <p class="text-muted mb-3">Drop me a message anytime</p>
+                                <a href="mailto:a.doral.rodriguez@gmail.com" class="btn btn-outline-primary btn-lg">Send Email</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="contact-card p-4 h-100">
+                                <div class="contact-icon mb-3">
+                                    <i data-lucide="linkedin" size="48"></i>
+                                </div>
+                                <h5 class="fw-semibold mb-2">LinkedIn</h5>
+                                <p class="text-muted mb-3">Connect with me professionally</p>
+                                <a href="https://www.linkedin.com/in/antoniodoral/" target="_blank" class="btn btn-outline-primary btn-lg">View Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -387,6 +414,11 @@
 
     <!-- Bootstrap JS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
     <!-- Your Custom JS -->
     <script src="Assets/JS/main.js"></script>
     <script src="Assets/JS/timeline.js"></script>
