@@ -27,25 +27,36 @@
     </header>
 
     <main class="container my-5">
-        <!-- Horizontal selector -->
-        <div class="selector-wrapper mb-4">
-            <div class="selector" role="tablist" aria-label="Project sections">
-                <button class="selector-item active" data-target="cad" role="tab" aria-selected="true">CAD</button>
-                <button class="selector-item" data-target="aero" role="tab" aria-selected="false">Aerodynamics</button>
-            </div>
-        </div>
+        <!-- Tab Navigation -->
+        <ul class="nav nav-tabs justify-content-center mb-4" id="projectTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="cad-tab" data-bs-toggle="tab" data-bs-target="#cad" type="button" role="tab" aria-controls="cad" aria-selected="true">CAD</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="aero-tab" data-bs-toggle="tab" data-bs-target="#aero" type="button" role="tab" aria-controls="aero" aria-selected="false">Aerodynamics</button>
+            </li>
+        </ul>
 
-        <!-- Content panels -->
-        <div class="panel-container">   
-            <section id="cad" class="panel active">
+        <!-- Tab Content -->
+        <div class="tab-content" id="projectTabsContent">   
+            <!-- CAD Tab -->
+            <div class="tab-pane fade show active" id="cad" role="tabpanel" aria-labelledby="cad-tab">
                 <h3 class="section-title">CAD Design Philosophy</h3>
                 <p>A high-performance CAD methodology focused on delivering aerodynamically critical, regulation-compliant surfaces with maximum iteration speed.</p>
-                <ul class="methodology-list">
-                    <li class="methodology-item"><strong>Rapid Parametric Iteration:</strong> The core architecture is built around a parametrised skeleton model, enabling rapid development of geometry concepts while maintaining a robust design for stable updates.</li>
-                    <li class="methodology-item"><strong>Class-A Surface Quality:</strong> Design focused on high quality surfaces to G1 and G2 curvature continuity in 3DExperience CATIA, ensuring the greatest manufacturing and aerodynamic standards.</li>
-                    <li class="methodology-item"><strong>Legal parts save time:</strong> Production and legality checks integrated into the design to ensure compliance with F1 regulations and manufacturing requirements.</li>
-                    <li class="methodology-item"><strong>Built for the team:</strong> Developed with a logical file structure, clear naming and custom colours to facilitate collaboration and knowledge sharing with other engineers.</li>
-                </ul>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="methodology-item"><strong>Rapid Parametric Iteration:</strong> The core architecture is built around a parametrised skeleton model, enabling rapid development of geometry concepts while maintaining a robust design for stable updates.</div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="methodology-item"><strong>Class-A Surface Quality:</strong> Design focused on high quality surfaces to G1 and G2 curvature continuity in 3DExperience CATIA, ensuring the greatest manufacturing and aerodynamic standards.</div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="methodology-item"><strong>Legal parts save time:</strong> Production and legality checks integrated into the design to ensure compliance with F1 regulations and manufacturing requirements.</div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="methodology-item"><strong>Built for the team:</strong> Developed with a logical file structure, clear naming and custom colours to facilitate collaboration and knowledge sharing with other engineers.</div>
+                    </div>
+                </div>
                 <div class="mt-4">
                     <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm">
                         <img src="Assets/Images/Bodywork/Skeleton.png" alt="CAD Detail" class="project-card-img rounded clickable-image" data-full="Assets/Images/Bodywork/Skeleton.png">
@@ -80,9 +91,10 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <section id="aero" class="panel">
+            <!-- Aerodynamics Tab -->
+            <div class="tab-pane fade" id="aero" role="tabpanel" aria-labelledby="aero-tab">
                 <!-- Sub-selector for Aero tab -->
                 <div class="selector-wrapper sub-selector-wrapper mb-4">
                     <div class="selector sub-selector" role="tablist" aria-label="Aerodynamics sections">
@@ -264,7 +276,7 @@
                         </div>
                     </section>
                 </div>
-            </section>
+            </div>
         </div>
     </main>
 
@@ -298,14 +310,14 @@
             </div>
         </div>
     <script>
-        // Enhanced tab switcher to handle main tabs and sub-tabs with default states
+        // Enhanced tab switcher to handle main tabs with Bootstrap and sub-tabs with custom logic
         (function(){
-            // Handle all tab clicks with a single delegated listener
+            // Handle sub-tabs in Aerodynamics tab with custom logic
             document.querySelector('main').addEventListener('click', function(e) {
-                if (!e.target.matches('.selector-item')) return;
+                if (!e.target.matches('.sub-selector .selector-item')) return;
 
                 const button = e.target;
-                const parentSelector = button.closest('.selector');
+                const parentSelector = button.closest('.sub-selector');
                 const targetId = button.getAttribute('data-target');
                 const targetPanel = document.getElementById(targetId);
 
@@ -321,11 +333,13 @@
                 button.classList.add('active');
                 button.setAttribute('aria-selected', 'true');
                 if (targetPanel) targetPanel.classList.add('active');
+            });
 
-                // --- Special logic for the main 'Aerodynamics' tab ---
-                // If the 'aero' tab was just clicked, reset its sub-tabs to default.
-                if (targetId === 'aero') {
-                    const subSelector = targetPanel.querySelector('.sub-selector');
+            // Reset sub-tabs when Aerodynamics tab is shown
+            const aeroTab = document.getElementById('aero-tab');
+            if (aeroTab) {
+                aeroTab.addEventListener('shown.bs.tab', function () {
+                    const subSelector = document.querySelector('.sub-selector');
                     const variantsButton = subSelector.querySelector('[data-target="variants"]');
                     const comparisonButton = subSelector.querySelector('[data-target="comparison"]');
                     const variantsPanel = document.getElementById('variants');
@@ -340,8 +354,8 @@
                     variantsButton.classList.add('active');
                     variantsButton.setAttribute('aria-selected', 'true');
                     if (variantsPanel) variantsPanel.classList.add('active');
-                }
-            });
+                });
+            }
         })();
 
         // Lightbox handler with Swiper
@@ -357,7 +371,7 @@
 
                 img.style.cursor = 'zoom-in';
 
-                const parentPanel = img.closest('.panel.active');
+                const parentPanel = img.closest('.panel.active') || img.closest('.tab-pane.active');
                 // Find all images within the currently active main tab content, including sub-tabs
                 const images = Array.from(parentPanel.querySelectorAll('.clickable-image'));
                 const clickedIndex = images.indexOf(img);

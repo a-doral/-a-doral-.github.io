@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Methodology | Antonio Doral</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link rel="icon" type="image/png" href="Assets/Images/Logo_small.png">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Antonio Doral</a>
+            <a href="index.html#projects" class="back-button">
+                <i data-lucide="arrow-left"></i>Back to Projects
+            </a>
+        </div>
+    </nav>
+
+    <header class="project-header">
+        <div class="container text-center">
+            <h1 class="project-title">Design Methodology</h1>
+            <p class="project-subtitle">This is the design methodology I apply to all my aerodynamic surfaces designs, focusing on high surface quality (Class A), smart structuring and design parametrisation.</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <!-- Tab Navigation -->
+        <ul class="nav nav-tabs justify-content-center mb-4" id="methodologyTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="principles-tab" data-bs-toggle="tab" data-bs-target="#principles" type="button" role="tab" aria-controls="principles" aria-selected="true">Design Principles</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="implementation-tab" data-bs-toggle="tab" data-bs-target="#implementation" type="button" role="tab" aria-controls="implementation" aria-selected="false">File Structure</button>
+            </li>
+                        <li class="nav-item" role="presentation">
+                <button class="nav-link" id="airfoil-tab" data-bs-toggle="tab" data-bs-target="#airfoil" type="button" role="tab" aria-controls="airfoil" aria-selected="false">Airfoil Design</button>
+            </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="d3-tab" data-bs-toggle="tab" data-bs-target="#d3design" type="button" role="tab" aria-controls="d3design" aria-selected="false">3D Design</button>
+                        </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="legality-tab" data-bs-toggle="tab" data-bs-target="#legality" type="button" role="tab" aria-controls="legality" aria-selected="false">Legality & Quality</button>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="methodologyTabsContent">
+            <!-- Design Principles Tab -->
+            <div class="tab-pane fade show active" id="principles" role="tabpanel" aria-labelledby="principles-tab">
+                <h3 class="section-title">Key Concepts</h3>
+                <p>A systematic approach to product development that ensures quality, efficiency, and innovation in engineering design processes.</p>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="methodology-item"><strong>Rapid Parametric Iteration:</strong> The core architecture is built around a parametrised skeleton model, enabling rapid development of geometry concepts while maintaining a robust design for stable updates.</div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="methodology-item"><strong>Built for the team:</strong> Developed with a logical file structure, clear naming and custom colours to facilitate collaboration and knowledge sharing with other engineers.</div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="methodology-item"><strong>Resilience by definition:</strong> Designed using reference elements that enable modification of elements without compromising the overall design integrity.</div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="methodology-item"><strong>Class A surfacing quality:</strong> Following advanced techniques to create G2 and G3 continuity in aerodynamic surfaces.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Airfoil Design Tab -->
+            <div class="tab-pane fade" id="airfoil" role="tabpanel" aria-labelledby="airfoil-tab">
+                <h3 class="section-title">Airfoil Design Methodology</h3>
+                <p>This airfoil design methodology enables the consistent creation of high quality surfaces and easy modification through a robust and parametrised design.</p>
+
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card shadow-sm">
+                            <div class="card-body d-flex flex-column align-items-center">
+                                <h5 class="card-title">Airfoil Profile</h5>
+                                <div class="mb-3" style="width:100%; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                                    <img src="Assets/Images/CAD Methodologhy/airfoil.png" alt="Airfoil profile" class="img-fluid clickable-image" data-full="Assets/Images/CAD Methodologhy/airfoil.png" style="max-height:50vh; width:auto;">
+                                </div>
+                                <p class="card-text small text-muted mb-0">Primary airfoil section used as baseline for aerodynamic elements design.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="comparison-legend mt-3 d-flex flex-wrap gap-3 justify-content-center py-2" role="group" aria-label="Airfoil comparison legend" style="margin-bottom:1.25rem;">
+                            <div class="legend-item"><span class="legend-color-swatch" style="background-color: #007bff;"></span> Main Profile</div>
+                            <div class="legend-item"><span class="legend-color-swatch" style="background-color: #fd7e14;"></span> Tangency and Control Elements</div>
+                            <div class="legend-item"><span class="legend-color-swatch" style="background-color: #28a745;"></span> Chord</div>
+                            <div class="legend-item"><span class="legend-color-swatch" style="background-color: #d400ff;"></span> Camber</div>
+                            <div class="legend-item"><span class="legend-color-swatch" style="background-color: #fffb07;"></span> Reference Planes</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="methodology-item"><strong>High Level of Control</strong> Through the various angle and curvature controls, the airfoil can be modified to achieve the required aerodynamic characteristics.</div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="methodology-item"><strong>Robust Design</strong>The strategic use of reference elements enables a robust and fast modification process.</div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="methodology-item"><strong>CAD Elements Knowledge</strong> The design takes into consideration the intricacies of each type of element to provide a robust design. Use of Extremums and on curve/on plane points rather than relying on the fictitious points created at the end of the lines. Use of tangencies for maximum quality and continuity while maintaining surface quality.</div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="methodology-item"><strong>Manufacturing and Testing Focus</strong> Taking into account manufacturing limits, like the width of the trailing edge, with enough margin for model making at scale for wind tunnel testing. This aims to increase the correlation between designed parts, tested parts in the wind tunnel and manufactured parts.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3D Design Tab (copied from Airfoil tab with wing image) -->
+            <div class="tab-pane fade" id="d3design" role="tabpanel" aria-labelledby="d3-tab">
+                <h3 class="section-title">3D Wing Design</h3>
+                <p>The methodology can be applied to high-quality complex surface design.</p>
+
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card shadow-sm">
+                            <div class="card-body d-flex flex-column align-items-center">
+                                <h5 class="card-title">Wing Profile</h5>
+                                <div class="mb-3" style="width:100%; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                                    <img src="Assets/Images/CAD Methodologhy/wing.png" alt="Wing profile" class="img-fluid clickable-image" data-full="Assets/Images/CAD Methodologhy/wing.png" style="max-height:50vh; width:auto;">
+                                </div>
+                                <p class="card-text small text-muted mb-0">Primary wing section used as baseline for 3D elements design.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="comparison-legend mt-3 d-flex flex-wrap gap-3 justify-content-center py-2" role="group" aria-label="Wing comparison legend" style="margin-bottom:1.25rem;">
+                            <div class="legend-item"><span class="legend-color-swatch" style="background-color: #007bff;"></span> Main Profile</div>
+                            <div class="legend-item"><span class="legend-color-swatch" style="background-color: #fd7e14;"></span> Tangency and Control Elements</div>
+                            <div class="legend-item"><span class="legend-color-swatch" style="background-color: #28a745;"></span> Chord</div>
+                            <div class="legend-item"><span class="legend-color-swatch" style="background-color: #d400ff;"></span> Camber</div>
+                            <div class="legend-item"><span class="legend-color-swatch" style="background-color: #fffb07;"></span> Reference Planes</div>
+                            <div class="legend-item"><span class="legend-color-swatch" style="background-color: #000000;"></span> Guide Lines Planes</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="methodology-item"><strong>Precise Control</strong> Every Spline is carefully controlled through tangent lines and parameters.</div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="methodology-item"><strong>Robust Design</strong>The strategic use of reference elements maintains the robust design of the airfoil.</div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="methodology-item"><strong>Combined 3D Guides</strong> The guide lines are created with the Combine tool that allows to combine two splines for advanced 3D control of the final Surface.</div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="methodology-item"><strong>Class A Surfaces</strong> The design adheres to Class A surface standards ensuring G2 continuity throughout the entire wing structure and enabling complex surfaces to be easily modified maintaining quality.</div>
+                    </div>
+                </div>
+
+                <!-- Additional full-width image card for 3D Design -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="card shadow-sm">
+                            <div class="card-body d-flex flex-column align-items-center">
+                                <h5 class="card-title">Surface Detail</h5>
+                                <div class="mb-3" style="width:100%; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                                    <img src="Assets/Images/CAD Methodologhy/surface.png" alt="Wing detail" class="img-fluid clickable-image" data-full="Assets/Images/CAD Methodologhy/surface.png" style="max-height:60vh; width:auto;">
+                                </div>
+                                <p class="card-text small text-muted mb-0">Detailed view of the wing surface and the tangent surface, used to maintain the high quality connectivity to the input structure and enable seamless symmetry creation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- File Structure Tab -->
+            <div class="tab-pane fade" id="implementation" role="tabpanel" aria-labelledby="implementation-tab">
+                <h3 class="section-title">CAD File Structure</h3>
+                <p class="mb-4">A clear, consistent file and model structure reduces rework and speeds collaboration.</p>
+
+                <div class="row">
+                    <div class="col-lg-3 mb-3">
+                        <div class="d-flex justify-content-start">
+                            <div style="max-width:60vw; width:fit-content;">
+                                <div class="card shadow-sm h-100">
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title">Project CAD Structure</h5>
+                                        <div class="mb-3" style="flex: 1 1 auto; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                                            <img src="Assets/Images/CAD Methodologhy/structure_1.png" alt="CAD file structure" class="img-fluid clickable-image" data-full="Assets/Images/CAD Methodologhy/structure_1.png" style="max-height:60vh; width:auto;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col mb-3">
+                        <div class="d-grid gap-3 h-100">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">Main structure</h5>
+                                    <p class="card-text small text-muted">The main structure is composed of three main folders that help organize the elements and enable fast knowledge transfer to other engineers of the team.</p>
+                                    <ul class="small mb-0">
+                                        <li>Input: Input geometry is located in this folder to facilitate bounding boxes, tangencies and requirements of the new design.</li>
+                                        <li>Construction: Main folder where the designed elements are located.</li>
+                                        <li>Output: Final surfaces ready to be linked and assembled where needed.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">Second Layer</h5>
+                                    <p class="card-text small text-muted">Inside each main folder, the elements are divided to maintain a consistent structure and facilitate collaboration.</p>
+                                    <ul class="small mb-0">
+                                        <li>Wireframe: Contains the reference geometry and the basic wireframe of the design.</li>
+                                        <li>Guides: Guide curves used to design complex surfaces.</li>
+                                        <li>Surfaces: Surfaces created from the wireframe and guides.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">Color Code and Naming conventions</h5>
+                                    <p class="card-text small text-muted">Each type of element has a different color and style to for rapid visual differentiation in the design and the navigation tree.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">parametrised Design</h5>
+                                <div class="mb-3" style="flex: 1 1 auto; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                                    <img src="Assets/Images/CAD Methodologhy/structure_2.png" alt="Structure detail" class="img-fluid clickable-image" data-full="Assets/Images/CAD Methodologhy/structure_2.png" style="max-height:60vh; width:auto;">
+                                </div>
+                                <p class="card-text small text-muted mt-2">The most important characteristics of the design are parametrised and implemented through formulas to increase modification and iteration speed and robustness.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legality & Quality Tab -->
+            <div class="tab-pane fade" id="legality" role="tabpanel" aria-labelledby="legality-tab">
+                <h3 class="section-title">Legality and Quality Assurance</h3>
+                <p>Ensuring designs meet regulatory requirements while maintaining the highest standards of surface quality through the Porcupine and conectivity analysis.</p>
+
+                <!-- Legal image card moved to top -->
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <div class="card shadow-sm">
+                            <div class="card-body d-flex flex-column align-items-center">
+                                <h5 class="card-title">Regulatory Detail</h5>
+                                <div class="mb-3" style="width:100%; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                                    <img src="Assets/Images/CAD Methodologhy/legal.png" alt="Regulatory / legal detail" class="img-fluid clickable-image" data-full="Assets/Images/CAD Methodologhy/legal.png" style="max-height:50vh; width:auto;">
+                                </div>
+                                <p class="card-text small text-muted mb-0">Procupine analysis used in the airfoil section to evaluate the quality of the section. The continuity showed by the tool ensures a high quality section with consistent curvature and tangencies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-md-6 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Class-A surfacing</h5>
+                                <p class="card-text small">The design adheres to Class A surface standards ensuring a minimum of G2 continuity and G3 when needed.</p>
+                                <ul class="small mb-0">
+                                    <li>G0: Positional continuity, ensures there are no gaps between surfaces.</li>
+                                    <li>G1: Tangent continuity, ensures surfaces are smoothly connected and share the same tangent angle at the connection point.</li>
+                                    <li>G2: Curvature continuity, ensures the curvature of surfaces is continuous at the connection points.</li>
+                                    <li>G3: Acceleration continuity, ensures the rate of change of curvature is the same at the connection points.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Porcupine Analysis</h5>
+                                <p class="card-text small mb-0">This tool is used to assess the quality of a surface through its sections. It provides insights into the continuity of the section.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Legality check</h5>
+                                <p class="card-text small mb-0">The Porcupine analysis can be used to control the minimum or maximum radius that is usually stated in the technical regulations. Advanced macros can be used to automatically check for regulatory compliance like the number of sections available in a plane or the containment inside boundary boxes.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Manufacturing standards</h5>
+                                <p class="card-text small mb-0">These quality checks can also be applied to the manufacturing process to ensure that the final product meets the desired specifications and quality levels as well as check for manufacturing limits like curvature radious or minimum surface width.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center py-4 bg-dark text-white mt-5">
+        <div class="container">
+            <p>&copy; 2025 Antonio Doral. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="Assets/JS/main.js"></script>
+        <!-- Lightbox modal -->
+        <div class="modal fade" id="imageLightbox" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen-sm-down modal-xl modal-dialog-centered">
+                <div class="modal-content bg-transparent border-0">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" style="position: absolute; top: 15px; right: 15px; z-index: 10;"></button>
+                    <div class="modal-body p-0 text-center">
+                        <!-- Swiper -->
+                        <div class="swiper lightbox-swiper">
+                            <div class="swiper-wrapper">
+                                <!-- Slides will be injected here -->
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script>
+        // Lightbox handler with Swiper
+        (function(){
+            const lightbox = new bootstrap.Modal(document.getElementById('imageLightbox'));
+            const swiperWrapper = document.querySelector('.lightbox-swiper .swiper-wrapper');
+            let swiperInstance = null;
+
+            // Use event delegation for clickable images
+            document.querySelector('main').addEventListener('click', function(e) {
+                const img = e.target.closest('.clickable-image');
+                if (!img) return;
+
+                img.style.cursor = 'zoom-in';
+
+                const parentPanel = img.closest('.panel.active') || img.closest('main');
+                const images = Array.from(parentPanel.querySelectorAll('.clickable-image'));
+                const clickedIndex = images.indexOf(img);
+
+                swiperWrapper.innerHTML = images.map(i => {
+                    const src = i.getAttribute('data-full') || i.src;
+                    return `<div class="swiper-slide"><img src="${src}" alt="${i.alt || ''}" class="lightbox-img"></div>`;
+                }).join('');
+
+                if (swiperInstance) {
+                    swiperInstance.destroy(true, true);
+                }
+
+                swiperInstance = new Swiper('.lightbox-swiper', {
+                    loop: false,
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    initialSlide: clickedIndex,
+                    keyboard: {
+                        enabled: true,
+                    },
+                });
+
+                lightbox.show();
+            });
+        })();
+    </script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

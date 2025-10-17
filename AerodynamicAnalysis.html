@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aerodynamic Analysis | Antonio Doral</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link rel="icon" type="image/png" href="Assets/Images/Logo_small.png">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Antonio Doral</a>
+            <a href="index.html#projects" class="back-button">
+                <i data-lucide="arrow-left"></i>Back to Projects
+            </a>
+        </div>
+    </nav>
+
+    <header class="project-header">
+        <div class="container text-center">
+            <h1 class="project-title">Aerodynamic Analysis</h1>
+            <p class="project-subtitle">Advanced computational and experimental techniques for aerodynamic performance evaluation and optimization in high-speed applications.</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <h3 class="section-title">Aerodynamic Analysis Techniques</h3>
+        <p>Comprehensive approach to aerodynamic evaluation combining computational fluid dynamics, experimental testing, and performance optimization strategies.</p>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <div class="methodology-item"><strong>CFD Simulations:</strong> Computational fluid dynamics analysis using advanced turbulence models and mesh optimization techniques.</div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="methodology-item"><strong>Wind Tunnel Testing:</strong> Experimental validation through controlled wind tunnel environments with force measurement and flow visualization.</div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="methodology-item"><strong>Performance Optimization:</strong> Multi-objective optimization algorithms to balance aerodynamic efficiency with practical design constraints.</div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="methodology-item"><strong>Data Analysis & Validation:</strong> Statistical analysis and uncertainty quantification to ensure reliable aerodynamic predictions.</div>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm">
+                <img src="Assets/Images/Drivaer/Thumbnail.png" alt="CFD Analysis" class="project-card-img rounded clickable-image" data-full="Assets/Images/Drivaer/Thumbnail.png">
+                <div class="card-content">
+                    <h5 class="mb-2">Computational Fluid Dynamics</h5>
+                    <p class="mb-1">Utilizing state-of-the-art CFD software to simulate complex flow phenomena, including turbulence, separation, and compressible effects in high-speed flows.</p>
+                    <p class="text-muted small mb-0">Software: Siemens Star-CCM+, ANSYS Fluent, OpenFOAM with LES and RANS turbulence models.</p>
+                </div>
+            </div>
+
+            <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm mt-3">
+                <img src="Assets/Images/Vibration/Thumbnail.jpg" alt="Experimental Testing" class="project-card-img rounded clickable-image" data-full="Assets/Images/Vibration/Thumbnail.jpg">
+                <div class="card-content">
+                    <h5 class="mb-2">Experimental Aerodynamics</h5>
+                    <p class="mb-1">Conducting systematic wind tunnel testing with advanced measurement techniques including pressure taps, force balances, and PIV flow visualization.</p>
+                    <p class="text-muted small mb-0"><strong>Capabilities:</strong> Subsonic and transonic testing, model design, and data acquisition systems.</p>
+                </div>
+            </div>
+
+            <div class="project-card d-flex align-items-start gap-3 p-3 rounded shadow-sm mt-3">
+                <img src="Assets/Images/NMPC/Thumbnail.png" alt="Optimization" class="project-card-img rounded clickable-image" data-full="Assets/Images/NMPC/Thumbnail.png">
+                <div class="card-content">
+                    <h5 class="mb-2">Aerodynamic Optimization</h5>
+                    <p class="mb-1">Applying optimization algorithms and design of experiments methodologies to achieve optimal aerodynamic performance within design constraints.</p>
+                    <p class="text-muted small mb-0"><strong>Methods:</strong> Response surface methodology, genetic algorithms, and adjoint-based optimization.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center py-4 bg-dark text-white mt-5">
+        <div class="container">
+            <p>&copy; 2025 Antonio Doral. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="Assets/JS/main.js"></script>
+        <!-- Lightbox modal -->
+        <div class="modal fade" id="imageLightbox" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen-sm-down modal-xl modal-dialog-centered">
+                <div class="modal-content bg-transparent border-0">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" style="position: absolute; top: 15px; right: 15px; z-index: 10;"></button>
+                    <div class="modal-body p-0 text-center">
+                        <!-- Swiper -->
+                        <div class="swiper lightbox-swiper">
+                            <div class="swiper-wrapper">
+                                <!-- Slides will be injected here -->
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script>
+        // Lightbox handler with Swiper
+        (function(){
+            const lightbox = new bootstrap.Modal(document.getElementById('imageLightbox'));
+            const swiperWrapper = document.querySelector('.lightbox-swiper .swiper-wrapper');
+            let swiperInstance = null;
+
+            // Use event delegation for clickable images
+            document.querySelector('main').addEventListener('click', function(e) {
+                const img = e.target.closest('.clickable-image');
+                if (!img) return;
+
+                img.style.cursor = 'zoom-in';
+
+                const parentPanel = img.closest('.panel.active') || img.closest('main');
+                const images = Array.from(parentPanel.querySelectorAll('.clickable-image'));
+                const clickedIndex = images.indexOf(img);
+
+                swiperWrapper.innerHTML = images.map(i => {
+                    const src = i.getAttribute('data-full') || i.src;
+                    return `<div class="swiper-slide"><img src="${src}" alt="${i.alt || ''}" class="lightbox-img"></div>`;
+                }).join('');
+
+                if (swiperInstance) {
+                    swiperInstance.destroy(true, true);
+                }
+
+                swiperInstance = new Swiper('.lightbox-swiper', {
+                    loop: false,
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    initialSlide: clickedIndex,
+                    keyboard: {
+                        enabled: true,
+                    },
+                });
+
+                lightbox.show();
+            });
+        })();
+    </script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
