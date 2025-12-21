@@ -23,7 +23,10 @@
         <div class="container">
             <div class="text-center">
                 <h1 class="project-title">Drivaer High Performance Fastback</h1>
-                <p class="project-subtitle">CFD study of the Drivaer fastback model and design of a high performance aerodynamic package including rear wing, diffuser, and splitter.</p>
+                <p class="project-subtitle">Design of a high performance aerodynamic package including rear wing, diffuser, and splitter following the methodologhy described in the <a href="./DesignMethodology.html" class="link-primary">Design Methodology</a> section.</p>
+                <div class="project-visual my-4" style="display:flex; justify-content:center;">
+                    <img src="Assets/Images/Drivaer/transformation.png" alt="Drivaer transformation" class="img-fluid clickable-image" data-full="Assets/Images/Drivaer/transformation.png" style="width:100%; height:auto; max-height:320px; object-fit:cover;">
+                </div>
             </div>
         </div>
     </header>
@@ -69,7 +72,7 @@
                                     <img src="Assets/Images/Drivaer/Thumbnail.png" alt="Drivaer Model" class="methodology-image">
                                     <div>
                                         <strong>CFD Workflow:</strong>
-                                        Used ANSYS Fluent for steady-state and transient simulations, focusing on turbulence modeling and mesh refinement for accurate results.
+                                        Used Star CCM+ for steady-state CFD simulations through a mesh independence study and the evaluation of the flowfield around the fastback.
                                     </div>
                                 </div>
                             </div>
@@ -84,19 +87,19 @@
                             </div>
                             <div class="outcome-item">
                                 <i data-lucide="check-circle-2" size="20"></i>
-                                <div>Design optimization of three key aerodynamic components</div>
+                                <div>Design of three key aerodynamic components</div>
                             </div>
                             <div class="outcome-item">
                                 <i data-lucide="check-circle-2" size="20"></i>
-                                <div>Integration of CFD results with CAD design</div>
+                                <div>Optimization of the CAD design through the analysis of CFD results</div>
                             </div>
 
                             <h4 class="mt-5">Technology Stack</h4>
                             <div>
-                                <span class="tech-stack-icon"><i data-lucide="file-code"></i>ANSYS Fluent</span>
-                                <span class="tech-stack-icon"><i data-lucide="calculator"></i>CAD Software</span>
+                                <span class="tech-stack-icon"><i data-lucide="file-code"></i>Star CCM+</span>
+                                <span class="tech-stack-icon"><i data-lucide="calculator"></i>3DExperience</span>
                                 <span class="tech-stack-icon"><i data-lucide="target"></i>CAD Design</span>
-                                <span class="tech-stack-icon"><i data-lucide="move"></i>CAD Software</span>
+                                <span class="tech-stack-icon"><i data-lucide="move"></i>Aerodynamic Analysis</span>
                             </div>
                         </div>
                     </div>
@@ -107,38 +110,35 @@
                 <div class="row g-5">
                     <div class="col-lg-7">
                         <h3 class="section-title">Description</h3>
-                        <p>The rear wing was designed to provide optimal downforce for high-speed stability while maintaining aerodynamic efficiency. Multiple wing profiles and angles were tested to achieve the best balance between performance and drag.</p>
+                        <p>The rear wing was designed to provide high rear downforce for high-speed stability while maintaining aerodynamic efficiency. Multiple wing profiles and angles were tested to achieve the best balance between performance and drag.</p>
 
-                        <h3 class="section-title mt-4">CAD Showcase</h3>
+                        <h3 class="section-title mt-4">CAD Design</h3>
                         <div class="row g-4">
                             <div class="col-12">
                                 <div class="methodology-item h-100">
-                                    <img src="Assets/Images/Drivaer/Thumbnail.png" alt="Rear Wing CAD" class="methodology-image">
+                                    <img src="Assets/Images/Drivaer/rear.png" alt="Rear Wing CAD" class="methodology-image">
                                     <div>
                                         <strong>3D Model:</strong>
-                                        Detailed CAD model of the optimized rear wing with mounting points and structural reinforcements.
+                                        Final CAD model of the rear wing with mounting points at the pressure side to minimise aerodynamic impact.
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <h3 class="section-title mt-4">Aerodynamics</h3>
-                        <p>Coefficient of lift (Cl) and drag (Cd) were analyzed at various speeds. The final design achieved a Cl/Cd ratio improvement of 15% over the baseline configuration.</p>
                     </div>
                     <div class="col-lg-5">
                         <div class="key-outcomes">
                             <h4>Key Technical Outcomes</h4>
                             <div class="outcome-item">
                                 <i data-lucide="check-circle-2" size="20"></i>
-                                <div>Optimized wing profile for maximum downforce-to-drag ratio</div>
+                                <div>Robust and customizable CAD design</div>
                             </div>
                             <div class="outcome-item">
                                 <i data-lucide="check-circle-2" size="20"></i>
-                                <div>Reduced drag by 15% compared to baseline design</div>
+                                <div>Multi element wing used to increase the AoA without separation with respect to a similar single element wing</div>
                             </div>
                             <div class="outcome-item">
                                 <i data-lucide="check-circle-2" size="20"></i>
-                                <div>Structural analysis ensuring durability at high speeds</div>
+                                <div>G2 Continuity and smooth surface transitions with the pylon</div>
                             </div>
                         </div>
                     </div>
@@ -150,38 +150,35 @@
                 <div class="row g-5">
                     <div class="col-lg-7">
                         <h3 class="section-title">Description</h3>
-                        <p>The underbody diffuser was designed to maximize ground effect and create additional downforce through pressure recovery. The design focused on optimizing the expansion ratio and angle for maximum efficiency.</p>
+                        <p>The underbody diffuser was designed to maximize ground effect and create additional downforce through pressure recovery. The CAD design allows to rapidly test diffuser angles and the geometry of the vertical fins.</p>
 
-                        <h3 class="section-title mt-4">CAD Showcase</h3>
+                        <h3 class="section-title mt-4">CAD Design</h3>
                         <div class="row g-4">
                             <div class="col-12">
                                 <div class="methodology-item h-100">
-                                    <img src="Assets/Images/Drivaer/Thumbnail.png" alt="Diffuser CAD" class="methodology-image">
+                                    <img src="Assets/Images/Drivaer/diff.png" alt="Diffuser CAD" class="methodology-image">
                                     <div>
                                         <strong>3D Model:</strong>
-                                        Detailed CAD model of the diffuser with optimized curves and mounting interfaces.
+                                        Detailed CAD model of the diffuser with vertical fins to guide the airflow.
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <h3 class="section-title mt-4">Aerodynamics</h3>
-                        <p>Ground effect analysis showed significant pressure recovery under the vehicle. The diffuser contributed to 20% increase in total downforce through optimized underbody flow management.</p>
                     </div>
                     <div class="col-lg-5">
                         <div class="key-outcomes">
                             <h4>Key Technical Outcomes</h4>
                             <div class="outcome-item">
                                 <i data-lucide="check-circle-2" size="20"></i>
-                                <div>Increased downforce by 20% through optimized diffuser design</div>
+                                <div>Increased downforce with minimal drag increase</div>
                             </div>
                             <div class="outcome-item">
                                 <i data-lucide="check-circle-2" size="20"></i>
-                                <div>Improved pressure recovery efficiency</div>
+                                <div>Improved aerodynamic balance</div>
                             </div>
                             <div class="outcome-item">
                                 <i data-lucide="check-circle-2" size="20"></i>
-                                <div>Enhanced ground effect utilization</div>
+                                <div>Rear tyre wake management, avoiding turbulent air at the exit of the diffuser</div>
                             </div>
                         </div>
                     </div>
@@ -193,38 +190,35 @@
                 <div class="row g-5">
                     <div class="col-lg-7">
                         <h3 class="section-title">Description</h3>
-                        <p>The front splitter was engineered to direct airflow under the vehicle and enhance the overall aerodynamic package. It works in conjunction with the diffuser to optimize underbody flow and pressure distribution.</p>
+                        <p>The front splitter was engineered to create a high pressure zone at the airdam and a lower region at the floor increasing front downforce.</p>
 
-                        <h3 class="section-title mt-4">CAD Showcase</h3>
+                        <h3 class="section-title mt-4">CAD Design</h3>
                         <div class="row g-4">
                             <div class="col-12">
                                 <div class="methodology-item h-100">
-                                    <img src="Assets/Images/Drivaer/Thumbnail.png" alt="Splitter CAD" class="methodology-image">
+                                    <img src="Assets/Images/Drivaer/Splitter.png" alt="Splitter CAD" class="methodology-image">
                                     <div>
                                         <strong>3D Model:</strong>
-                                        Detailed CAD model of the front splitter with integrated mounting and structural elements.
+                                        Detailed CAD model of the front splitter with an airdam and fully customizable angles.
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <h3 class="section-title mt-4">Aerodynamics</h3>
-                        <p>The splitter enhances front downforce generation and improves vehicle stability. CFD analysis showed improved yaw stability and reduced lift at high speeds, contributing to overall handling performance.</p>
                     </div>
                     <div class="col-lg-5">
                         <div class="key-outcomes">
                             <h4>Key Technical Outcomes</h4>
                             <div class="outcome-item">
                                 <i data-lucide="check-circle-2" size="20"></i>
-                                <div>Enhanced front downforce generation</div>
+                                <div>Increased front downforce generation</div>
                             </div>
                             <div class="outcome-item">
                                 <i data-lucide="check-circle-2" size="20"></i>
-                                <div>Improved vehicle stability at high speeds</div>
+                                <div>Utilisation of high pressure zones at the front to generate downforce</div>
                             </div>
                             <div class="outcome-item">
                                 <i data-lucide="check-circle-2" size="20"></i>
-                                <div>Optimized airflow management for underbody</div>
+                                <div>Robust CAD design allowing the fast iteration of the splitter</div>
                             </div>
                         </div>
                     </div>
