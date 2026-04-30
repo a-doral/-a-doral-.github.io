@@ -1,241 +1,1414 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drivaer High Performance Fastback | Antonio Doral</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="Assets/CSS/style.css">
-    <link rel="icon" type="image/png" href="Assets/Images/Logo_small.png">
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GT3 Aero Package Design | Antonio Doral</title>
+<meta name="description" content="Comprehensive CFD study and aerodynamic package design for the Drivaer fastback — rear wing, diffuser, and front splitter optimised in Star CCM+.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS — Precision Dark Motorsport
+═══════════════════════════════════════════ */
+:root {
+  --font-display: 'Orbitron', 'Courier New', monospace;
+  --font-body:    'Satoshi', 'Inter', sans-serif;
+
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+  --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+  --text-hero: clamp(3rem,     0.5rem  + 7vw,    8rem);
+
+  --space-1: 0.25rem; --space-2: 0.5rem;  --space-3: 0.75rem; --space-4: 1rem;
+  --space-5: 1.25rem; --space-6: 1.5rem;  --space-8: 2rem;    --space-10: 2.5rem;
+  --space-12: 3rem;   --space-16: 4rem;   --space-20: 5rem;   --space-24: 6rem;
+
+  /* Precision Dark Palette */
+  --color-bg:              #07080d;
+  --color-surface:         #0c0e15;
+  --color-surface-2:       #10121a;
+  --color-surface-offset:  #14172100;
+  --color-surface-dynamic: #1e2130;
+  --color-divider:         rgba(0,190,230,0.08);
+  --color-border:          rgba(0,190,230,0.14);
+  --color-border-subtle:   rgba(255,255,255,0.06);
+
+  --color-text:            #d4dde8;
+  --color-text-muted:      #5e6e82;
+  --color-text-faint:      #323d4a;
+  --color-text-inverse:    #07080d;
+
+  --color-primary:         #00bcd4;
+  --color-primary-hover:   #00e5ff;
+  --color-primary-dim:     rgba(0,188,212,0.12);
+  --color-primary-glow:    rgba(0,188,212,0.25);
+
+  --color-accent-line:     rgba(0,190,230,0.6);
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  --transition-fast: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-med:  300ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.5);
+  --shadow-lg: 0 16px 48px rgba(0,0,0,0.6);
+  --shadow-glow: 0 0 32px rgba(0,188,212,0.15);
+
+  --content-narrow:  640px;
+  --content-default: 960px;
+  --content-wide:    1200px;
+}
+
+/* ═══════════════════════════════════════════
+   BASE RESET
+═══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--space-16);
+}
+body {
+  min-height: 100dvh;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+img, svg { display: block; max-width: 100%; }
+button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+h1,h2,h3,h4,h5 { text-wrap: balance; line-height: 1.15; font-family: var(--font-display); }
+p, li { text-wrap: pretty; max-width: 72ch; }
+::selection { background: rgba(0,188,212,0.25); }
+:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
+a, button, [role="button"] {
+  transition: color var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
+}
+
+/* ═══════════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════════ */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: var(--radius-full); }
+
+/* ═══════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════ */
+.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 900;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-8);
+  background: rgba(7,8,13,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--color-divider);
+}
+.nav-inner {
+  width: 100%;
+  max-width: var(--content-wide);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+.nav-logo span { color: var(--color-primary); }
+.nav-back {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-full);
+  transition: var(--transition-fast);
+}
+.nav-back:hover { color: var(--color-primary); border-color: var(--color-border); }
+.nav-back svg { width: 14px; height: 14px; }
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 80px var(--space-6) 120px;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 30%, rgba(0,160,200,0.07) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 40% at 10% 80%, rgba(0,100,160,0.05) 0%, transparent 60%),
+    linear-gradient(180deg, #07080d 0%, #0c0e15 50%, #07080d 100%);
+}
+.hero-grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,190,230,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,190,230,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 0%, transparent 70%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  width: 100%;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-6);
+}
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--color-primary);
+  opacity: 0.5;
+}
+.hero-title {
+  font-size: var(--text-3xl);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #e8edf6;
+  margin-bottom: var(--space-6);
+  line-height: 1.05;
+}
+.hero-title em {
+  font-style: normal;
+  color: var(--color-primary);
+}
+.hero-description {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  max-width: 60ch;
+  margin: 0 auto var(--space-10);
+  line-height: 1.7;
+}
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+}
+.meta-chip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: rgba(0,188,212,0.06);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.meta-chip svg { width: 12px; height: 12px; color: var(--color-primary); flex-shrink: 0; }
+.hero-scroll-hint {
+  position: absolute;
+  bottom: var(--space-8);
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  animation: scroll-hint 2.4s ease-in-out infinite;
+}
+.scroll-line {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, var(--color-primary), transparent);
+  border-radius: var(--radius-full);
+}
+@keyframes scroll-hint {
+  0%, 100% { opacity: 0.4; transform: translate(-50%, 0); }
+  50%       { opacity: 1;   transform: translate(-50%, 6px); }
+}
+
+/* ═══════════════════════════════════════════
+   CONTAINERS & LAYOUT
+═══════════════════════════════════════════ */
+.container {
+  width: 100%;
+  max-width: var(--content-wide);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+.container--narrow { max-width: var(--content-default); }
+.section-pad { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
+
+/* ═══════════════════════════════════════════
+   SECTION LABELS
+═══════════════════════════════════════════ */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-5);
+}
+.section-label::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--color-primary);
+}
+.section-heading {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #e2ecf6;
+  margin-bottom: var(--space-6);
+  text-transform: uppercase;
+}
+.section-heading .dim { color: var(--color-text-muted); font-weight: 400; }
+
+/* ═══════════════════════════════════════════
+   GT3 INTERACTIVE DIAGRAM SECTION
+═══════════════════════════════════════════ */
+.diagram-section {
+  padding-block: clamp(var(--space-12), 8vw, var(--space-20));
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 50%, rgba(0,160,200,0.06) 0%, transparent 65%),
+    var(--color-bg);
+  border-top: 1px solid var(--color-divider);
+  border-bottom: 1px solid var(--color-divider);
+}
+.diagram-header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+.diagram-header .section-label { justify-content: center; }
+.diagram-header .section-label::before { display: none; }
+.diagram-header .section-label::after {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--color-primary);
+}
+.diagram-header p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin: 0 auto;
+  letter-spacing: 0.04em;
+}
+.gt3-diagram-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 7;
+  user-select: none;
+}
+.gt3-car-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+  filter: drop-shadow(0 0 40px rgba(0,160,220,0.22)) brightness(1.05);
+}
+.gt3-arrow-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+.gt3-arrow-svg line {
+  stroke: rgba(0,190,230,0.5);
+  stroke-width: 1.2;
+  stroke-dasharray: 4 4;
+  animation: dash-flow 1.6s linear infinite;
+}
+.gt3-arrow-svg .arrow-dot {
+  fill: var(--color-primary);
+  filter: drop-shadow(0 0 4px rgba(0,190,230,0.8));
+}
+@keyframes dash-flow { to { stroke-dashoffset: -80; } }
+
+/* ── Aero Nodes ─────────────────────────── */
+.aero-node {
+  position: absolute;
+  left: var(--node-x);
+  top:  var(--node-y);
+  transform: translate(-50%, -50%);
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0,190,230,0.4);
+  background: rgba(7,8,13,0.88);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  overflow: visible;
+  transition: transform var(--transition-med), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.aero-node:hover, .aero-node:focus-visible {
+  transform: translate(-50%, -50%) scale(1.13);
+  border-color: var(--color-primary);
+  box-shadow:
+    0 0 0 5px rgba(0,188,212,0.1),
+    0 0 24px rgba(0,188,212,0.35);
+  outline: none;
+}
+.aero-node-ring {
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,190,230,0.35);
+  animation: ring-pulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+.aero-node-ring-2 {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,190,230,0.15);
+  animation: ring-pulse 2.4s ease-out infinite 0.6s;
+  pointer-events: none;
+}
+@keyframes ring-pulse {
+  0%   { transform: scale(1);    opacity: 0.6; }
+  70%  { transform: scale(1.18); opacity: 0; }
+  100% { transform: scale(1.18); opacity: 0; }
+}
+.aero-node-img {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  object-fit: cover;
+  pointer-events: none;
+  filter: brightness(0.8) saturate(0.85);
+  transition: filter var(--transition-fast);
+}
+.aero-node:hover .aero-node-img { filter: brightness(1.05) saturate(1.1); }
+.aero-node-label {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* ── Modal ──────────────────────────────── */
+.aero-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  background: rgba(5,7,12,0.82);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  opacity: 0;
+  transition: opacity var(--transition-med);
+}
+.aero-modal-backdrop:not([hidden]) { opacity: 1; }
+.aero-modal-backdrop[hidden] { display: none !important; }
+.aero-modal {
+  position: relative;
+  background: linear-gradient(145deg, #0f1220, #0a0c14);
+  border: 1px solid rgba(0,190,230,0.2);
+  border-radius: var(--radius-2xl);
+  box-shadow:
+    0 0 0 1px rgba(0,190,230,0.06),
+    0 40px 100px rgba(0,0,0,0.75),
+    var(--shadow-glow);
+  max-width: 880px;
+  width: 100%;
+  overflow: hidden;
+  transform: scale(0.94) translateY(8px);
+  transition: transform var(--transition-med);
+}
+.aero-modal-backdrop:not([hidden]) .aero-modal { transform: scale(1) translateY(0); }
+.aero-modal-close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border-subtle);
+  background: rgba(255,255,255,0.05);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.aero-modal-close:hover { background: rgba(255,60,60,0.15); color: #fff; border-color: rgba(255,60,60,0.3); }
+.aero-modal-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 640px) { .aero-modal-inner { grid-template-columns: 1fr; } }
+.aero-modal-image-wrap {
+  background: rgba(5,7,12,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+  min-height: 280px;
+  border-right: 1px solid var(--color-divider);
+}
+.aero-modal-img {
+  max-width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+  filter: drop-shadow(0 0 24px rgba(0,160,220,0.3));
+}
+.aero-modal-body {
+  padding: var(--space-10) var(--space-8) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-4);
+}
+.aero-modal-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  opacity: 0.8;
+}
+.aero-modal-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #e2ecf6;
+  margin: 0;
+}
+.aero-modal-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary), transparent);
+  margin-top: var(--space-3);
+  border-radius: 2px;
+}
+.aero-modal-text {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  margin: 0;
+  max-width: 100%;
+}
+
+/* ═══════════════════════════════════════════
+   OVERVIEW SECTION
+═══════════════════════════════════════════ */
+.overview-section {
+  border-bottom: 1px solid var(--color-divider);
+}
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: start;
+}
+@media (max-width: 768px) { .overview-grid { grid-template-columns: 1fr; gap: var(--space-8); } }
+.overview-body p {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin-bottom: var(--space-6);
+  max-width: 60ch;
+}
+.cfd-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: rgba(0,188,212,0.08);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-6);
+}
+.cfd-badge svg { width: 13px; height: 13px; }
+.overview-stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.stat-card {
+  padding: var(--space-5) var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.stat-card:hover { border-color: var(--color-border); box-shadow: var(--shadow-sm); }
+.stat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-lg);
+  background: var(--color-primary-dim);
+  border: 1px solid rgba(0,188,212,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.stat-icon svg { width: 18px; height: 18px; color: var(--color-primary); }
+.stat-body { flex: 1; min-width: 0; }
+.stat-label {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  margin-bottom: var(--space-1);
+}
+.stat-value {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+}
+
+/* ═══════════════════════════════════════════
+   COMPONENT SECTIONS
+═══════════════════════════════════════════ */
+.component-section {
+  border-bottom: 1px solid var(--color-divider);
+}
+.component-section:nth-child(even) { background: var(--color-surface); }
+.component-number {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 900;
+  color: rgba(0,188,212,0.06);
+  line-height: 1;
+  position: absolute;
+  top: var(--space-6);
+  right: 0;
+  user-select: none;
+  pointer-events: none;
+  letter-spacing: -0.03em;
+}
+.component-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+@media (max-width: 768px) { .component-grid { grid-template-columns: 1fr; } }
+.component-grid.reversed .component-image-col { order: -1; }
+@media (max-width: 768px) { .component-grid.reversed .component-image-col { order: 0; } }
+
+.component-content { position: relative; }
+.component-index {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  margin-bottom: var(--space-3);
+}
+.component-title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #e2ecf6;
+  margin-bottom: var(--space-5);
+  line-height: 1.1;
+}
+.component-title span { color: var(--color-primary); }
+.component-body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin-bottom: var(--space-8);
+  max-width: 52ch;
+}
+.outcome-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.outcome-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+.outcome-check {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-primary-dim);
+  border: 1px solid rgba(0,188,212,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.outcome-check svg { width: 10px; height: 10px; color: var(--color-primary); }
+
+.component-image-col {
+  position: relative;
+}
+.component-image-frame {
+  position: relative;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border-subtle);
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.component-image-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,160,200,0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+.component-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: var(--space-6);
+  filter: drop-shadow(0 0 20px rgba(0,160,220,0.2));
+  position: relative;
+  z-index: 2;
+}
+.image-tag {
+  position: absolute;
+  bottom: var(--space-3);
+  left: var(--space-3);
+  z-index: 3;
+  padding: var(--space-1) var(--space-3);
+  background: rgba(7,8,13,0.85);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+/* Outcome chips */
+.outcome-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+}
+.chip {
+  padding: var(--space-1) var(--space-3);
+  background: rgba(0,188,212,0.07);
+  border: 1px solid rgba(0,188,212,0.15);
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  opacity: 0.8;
+}
+
+/* ═══════════════════════════════════════════
+   RESULTS / DIVIDER
+═══════════════════════════════════════════ */
+.results-section {
+  background: var(--color-surface);
+}
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-4);
+}
+.result-card {
+  padding: var(--space-6);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+.result-card:hover {
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.result-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-xl);
+  background: var(--color-primary-dim);
+  border: 1px solid rgba(0,188,212,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-4);
+}
+.result-icon svg { width: 22px; height: 22px; color: var(--color-primary); }
+.result-title {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+.result-body {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: 30ch;
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+.site-footer {
+  padding: var(--space-8) var(--space-6);
+  border-top: 1px solid var(--color-divider);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.footer-logo span { color: var(--color-primary); }
+.footer-links {
+  display: flex;
+  gap: var(--space-6);
+}
+.footer-links a {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  transition: color var(--transition-fast);
+}
+.footer-links a:hover { color: var(--color-primary); }
+
+/* ═══════════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════════ */
+.fade-in { opacity: 1; }
+@supports (animation-timeline: scroll()) {
+  .fade-in {
+    opacity: 0;
+    animation: reveal-fade linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
+  }
+}
+@keyframes reveal-fade { to { opacity: 1; } }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 600px) {
+  .aero-node { width: 78px; height: 78px; }
+  .aero-node-img { width: 60px; height: 60px; }
+  .aero-node-label { font-size: 0.55rem; }
+  .hero-title { letter-spacing: -0.02em; }
+  .site-nav { padding: 0 var(--space-4); }
+}
+@media (max-width: 480px) {
+  .aero-modal-inner { grid-template-columns: 1fr !important; }
+  .aero-modal-image-wrap { border-right: none; border-bottom: 1px solid var(--color-divider); min-height: 200px; }
+}
+
+    /* ── Rich modal content ──────────────────────────────── */
+    .aero-modal-body {
+      padding: var(--space-8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--space-3);
+      overflow-y: auto;
+      max-height: 80vh;
+    }
+
+    .aero-modal-outcomes {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-2) 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .aero-modal-outcome-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      line-height: 1.55;
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-md);
+      transition: background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .aero-modal-outcome-item:hover {
+      background: rgba(0,188,212,0.06);
+      transform: translateX(4px);
+    }
+
+    .aero-modal-outcome-check {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--color-primary-dim);
+      border: 1px solid rgba(0,188,212,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .aero-modal-outcome-check svg {
+      width: 8px;
+      height: 8px;
+      color: var(--color-primary);
+    }
+
+    .aero-modal-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: var(--space-1);
+    }
+
+    .aero-modal-chip {
+      padding: var(--space-1) var(--space-3);
+      background: rgba(0,188,212,0.07);
+      border: 1px solid rgba(0,188,212,0.15);
+      border-radius: var(--radius-full);
+      font-family: var(--font-display);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      opacity: 0.85;
+      transition: background var(--transition-fast), border-color var(--transition-fast),
+                  opacity var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .aero-modal-chip:hover {
+      background: rgba(0,188,212,0.15);
+      border-color: rgba(0,188,212,0.38);
+      opacity: 1;
+      box-shadow: 0 0 10px rgba(0,188,212,0.14);
+    }
+
+    /* Divider line between image and content */
+    .aero-modal-image-wrap {
+      border-right: 1px solid var(--color-divider);
+    }
+
+    /* Modal wider to fit rich content */
+    .aero-modal {
+      max-width: 960px;
+    }
+
+    @media (max-width: 640px) {
+      .aero-modal-body {
+        padding: var(--space-5) var(--space-4);
+        max-height: none;
+      }
+      .aero-modal-image-wrap {
+        border-right: none;
+        border-bottom: 1px solid var(--color-divider);
+      }
+    }
+
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Antonio Doral</a>
-            <a href="index.html#projects" class="back-button">
-                <i data-lucide="arrow-left"></i>Back to Projects
-            </a>
+
+<!-- ══ NAV ══════════════════════════════════════════ -->
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Antonio <span>Doral</span></a>
+    <a href="index.html#projects" class="nav-back">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Projects
+    </a>
+  </div>
+</nav>
+
+<!-- ══ HERO ═════════════════════════════════════════ -->
+<section class="hero" aria-label="Project hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-grid-lines" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Aerodynamic Design</p>
+    <h1 class="hero-title">GT3 Aero<br><em>Package</em> Design</h1>
+    <p class="hero-description">
+      Comprehensive CFD study and aerodynamic package development for the Drivaer fastback model, optimising rear downforce, diffuser efficiency, and front balance using Star&nbsp;CCM+.
+    </p>
+    <div class="hero-meta">
+      <div class="meta-chip">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Star CCM+
+      </div>
+      <div class="meta-chip">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        CFD Analysis
+      </div>
+      <div class="meta-chip">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        CAD Design
+      </div>
+      <div class="meta-chip">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+        Downforce Optimisation
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ══ GT3 INTERACTIVE DIAGRAM ═════════════════════ -->
+<section class="diagram-section" aria-label="GT3 aerodynamic diagram">
+  <div class="container">
+    <div class="diagram-header">
+      <p class="section-label">Interactive Overview</p>
+      <h2 class="section-heading" style="font-size: var(--text-xl); margin-bottom: var(--space-3);">Aerodynamic Package</h2>
+      <p>Select any component node to explore the design in detail</p>
+    </div>
+
+    <div class="gt3-diagram-wrapper" id="gt3Diagram">
+      <img src="Assets/Images/Drivaer/complete.png" alt="GT3 Drivaer full car — aerodynamic package overview" class="gt3-car-image" id="gt3CarImage" width="1000" height="437" loading="lazy">
+      <svg class="gt3-arrow-svg" id="gt3ArrowSvg" aria-hidden="true"></svg>
+
+      <!-- REAR WING -->
+      <button class="aero-node"
+        data-image="Assets/Images/Drivaer/rear.png"
+        data-title="Rear Wing"
+        data-text="Multi-element rear wing designed for maximum rear downforce and high-speed stability. G2-continuous surface transitions with mount points on the pressure side minimise aerodynamic interference. Multiple aerofoil profiles and angles of attack were evaluated in Star CCM+ to achieve the optimum downforce/drag ratio."
+        data-index="Component 01"
+        data-outcomes="[&quot;Multi-element wing with G2-continuous surface transitions&quot;, &quot;Pressure-side mounting minimises interference drag&quot;, &quot;Parametric angle-of-attack sweep in Star&nbsp;CCM+&quot;, &quot;Optimised downforce/drag balance for high-speed stability&quot;]"
+        data-chips="[&quot;Downforce&quot;, &quot;Multi-Element&quot;, &quot;G2 Surface&quot;]"
+        style="--node-x:84%; --node-y:8%;" aria-label="View Rear Wing detail">
+        <span class="aero-node-ring"></span>
+        <span class="aero-node-ring-2"></span>
+        <img src="Assets/Images/Drivaer/rear.png" alt="Rear Wing" class="aero-node-img">
+        <span class="aero-node-label">Rear Wing</span>
+      </button>
+
+      <!-- DIFFUSER -->
+      <button class="aero-node"
+        data-image="Assets/Images/Drivaer/diff.png"
+        data-title="Underbody Diffuser"
+        data-text="Underbody diffuser optimised for ground-effect downforce and pressure recovery. Parametric CAD geometry enables rapid iteration of diffuser angle and vertical-fin placement. CFD results confirmed improved rear balance and effective management of rear-tyre wake separation."
+        data-index="Component 02"
+        data-outcomes="[&quot;Ground-effect pressure recovery via optimised geometry&quot;, &quot;Parametric vertical-fin placement for wake management&quot;, &quot;Rapid angle and geometry iteration via CAD parametrisation&quot;, &quot;Improved rear balance confirmed by CFD flowfield analysis&quot;]"
+        data-chips="[&quot;Ground Effect&quot;, &quot;Pressure Recovery&quot;, &quot;Wake Control&quot;]"
+        style="--node-x:78%; --node-y:82%;" aria-label="View Diffuser detail">
+        <span class="aero-node-ring"></span>
+        <span class="aero-node-ring-2"></span>
+        <img src="Assets/Images/Drivaer/diff.png" alt="Diffuser" class="aero-node-img">
+        <span class="aero-node-label">Diffuser</span>
+      </button>
+
+      <!-- FRONT SPLITTER -->
+      <button class="aero-node"
+        data-image="Assets/Images/Drivaer/Splitter.png"
+        data-title="Front Splitter"
+        data-text="Front splitter engineered to generate a high-pressure stagnation zone at the airdam and an accelerated low-pressure region beneath the floor, driving additional front downforce. Fully parametric CAD design allows fast iteration of cant angle and chord length for aerodynamic balance tuning."
+        data-index="Component 03"
+        data-outcomes="[&quot;Stagnation zone at airdam increases front downforce&quot;, &quot;Accelerated underfloor flow creates low-pressure region&quot;, &quot;Fully parametric cant angle and chord for balance tuning&quot;, &quot;Integrated with airdam for optimised front-end management&quot;]"
+        data-chips="[&quot;Front Downforce&quot;, &quot;Balance Tuning&quot;, &quot;Parametric CAD&quot;]"
+        style="--node-x:16%; --node-y:82%;" aria-label="View Front Splitter detail">
+        <span class="aero-node-ring"></span>
+        <span class="aero-node-ring-2"></span>
+        <img src="Assets/Images/Drivaer/Splitter.png" alt="Front Splitter" class="aero-node-img">
+        <span class="aero-node-label">Front Splitter</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MODAL ════════════════════════════════════════ -->
+<div class="aero-modal-backdrop" id="aeroModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="aeroModalTitle" hidden>
+  <div class="aero-modal">
+    <button class="aero-modal-close" id="aeroModalClose" aria-label="Close detail panel">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="aero-modal-inner">
+      <div class="aero-modal-image-wrap">
+        <img id="aeroModalImg" src="" alt="" class="aero-modal-img">
+      </div>
+      <div class="aero-modal-body">
+        <p class="aero-modal-eyebrow" id="aeroModalIndex">Component Detail</p>
+        <h3 class="aero-modal-title" id="aeroModalTitle"></h3>
+        <p class="aero-modal-text"   id="aeroModalText"></p>
+        <ul class="aero-modal-outcomes" id="aeroModalOutcomes" aria-label="Key outcomes"></ul>
+        <div class="aero-modal-chips" id="aeroModalChips"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PROJECT OVERVIEW ═════════════════════════════ -->
+<section class="overview-section section-pad" aria-labelledby="overview-heading">
+  <div class="container container--narrow">
+    <div class="overview-grid">
+      <div class="overview-body fade-in">
+        <div class="cfd-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          Aerodynamic Design Project
         </div>
-    </nav>
-
-    <header class="project-header">
-        <div class="container">
-            <div class="text-center">
-                <h1 class="project-title">GT3 Aero Package Design</h1>
-                <p class="project-subtitle">Design of a high performance aerodynamic package including rear wing, diffuser, splitter, bodywork and brake cooling following the methodologhy described in the <a href="./DesignMethodology.html" class="link-primary">Design Methodology</a> section.</p>
-                <div class="project-visual my-4" style="display:flex; justify-content:center;">
-                    <img src="Assets/Images/Drivaer/transformation.png" alt="Drivaer transformation" class="img-fluid clickable-image" data-full="Assets/Images/Drivaer/transformation.png" style="width:100%; height:auto; max-height:320px; object-fit:cover;">
-                </div>
-            </div>
+        <p class="section-label">Project Objective</p>
+        <h2 class="section-heading" id="overview-heading" style="font-size: var(--text-xl);">Comprehensive<br>CFD Study</h2>
+        <p>The aim was to perform a full aerodynamic study of the Drivaer fastback geometry and develop a high-performance aero package. Key components — rear wing, diffuser, and front splitter — were individually optimised to maximise downforce while minimising drag.</p>
+        <p>The project followed a systematic approach combining steady-state CFD simulations with parametric CAD iterations. Each component was characterised individually before integration into the complete vehicle package for final balance optimisation.</p>
+      </div>
+      <div class="overview-stats fade-in" role="list" aria-label="Project specifications">
+        <div class="stat-card" role="listitem">
+          <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div class="stat-body">
+            <p class="stat-label">Simulation Software</p>
+            <p class="stat-value">Star CCM+</p>
+          </div>
         </div>
-    </header>
-
-    <main class="container">
-        <!-- Tab Navigation -->
-        <ul class="nav nav-tabs justify-content-center mb-4" id="projectTabs" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="introduction-tab" data-bs-toggle="tab" data-bs-target="#introduction" type="button" role="tab" aria-controls="introduction" aria-selected="true">Introduction</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="rear-wing-tab" data-bs-toggle="tab" data-bs-target="#rear-wing" type="button" role="tab" aria-controls="rear-wing" aria-selected="false">Rear Wing</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="diffuser-tab" data-bs-toggle="tab" data-bs-target="#diffuser" type="button" role="tab" aria-controls="diffuser" aria-selected="false">Diffuser</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="splitter-tab" data-bs-toggle="tab" data-bs-target="#splitter" type="button" role="tab" aria-controls="splitter" aria-selected="false">Splitter</button>
-            </li>
-        </ul>
-
-        <!-- Tab Content -->
-        <div class="tab-content" id="projectTabsContent">
-            <!-- Introduction Tab -->
-            <div class="tab-pane fade show active" id="introduction" role="tabpanel" aria-labelledby="introduction-tab">
-                <div class="row g-5">
-                    <div class="col-lg-7">
-                        <div class="thesis-badge mb-4">
-                            <span class="badge bg-primary">Aerodynamic Design Project</span>
-                            <span class="badge bg-success">CFD Analysis</span>
-                            <span class="badge bg-secondary">High Performance Vehicle</span>
-                        </div>
-                        
-                        <h3 class="section-title">Project Objective</h3>
-                        <p>The aim of this project was to perform a comprehensive CFD study of the Drivaer fastback model and design a high-performance aerodynamic package. This involved optimizing key components including the rear wing, diffuser, and front splitter to maximize downforce while minimizing drag.</p>
-
-                        <h3 class="section-title mt-4">Methodology Overview</h3>
-                        <p>The project followed a systematic approach combining computational fluid dynamics (CFD) simulations with CAD design iterations. Each component was analyzed individually and then integrated into the complete vehicle package for final optimization.</p>
-
-                        <div class="row g-4">
-                            <div class="col-12">
-                                <div class="methodology-item h-100">
-                                    <img src="Assets/Images/Drivaer/Thumbnail2.png" alt="Drivaer Model" class="methodology-image">
-                                    <div>
-                                        <strong>CFD Workflow:</strong>
-                                        Used Star CCM+ for steady-state CFD simulations through a mesh independence study and the evaluation of the flowfield around the fastback.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="key-outcomes">
-                            <h4>Project Overview</h4>
-                            <div class="outcome-item">
-                                <i data-lucide="check-circle-2" size="20"></i>
-                                <div>Comprehensive aerodynamic analysis of fastback vehicle</div>
-                            </div>
-                            <div class="outcome-item">
-                                <i data-lucide="check-circle-2" size="20"></i>
-                                <div>Design of three key aerodynamic components</div>
-                            </div>
-                            <div class="outcome-item">
-                                <i data-lucide="check-circle-2" size="20"></i>
-                                <div>Optimization of the CAD design through the analysis of CFD results</div>
-                            </div>
-
-                            <h4 class="mt-5">Technology Stack</h4>
-                            <div>
-                                <span class="tech-stack-icon"><i data-lucide="file-code"></i>Star CCM+</span>
-                                <span class="tech-stack-icon"><i data-lucide="calculator"></i>3DExperience</span>
-                                <span class="tech-stack-icon"><i data-lucide="target"></i>CAD Design</span>
-                                <span class="tech-stack-icon"><i data-lucide="move"></i>Aerodynamic Analysis</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Rear Wing Tab -->
-            <div class="tab-pane fade" id="rear-wing" role="tabpanel" aria-labelledby="rear-wing-tab">
-                <div class="row g-5">
-                    <div class="col-lg-7">
-                        <h3 class="section-title">Description</h3>
-                        <p>The rear wing was designed to provide high rear downforce for high-speed stability while maintaining aerodynamic efficiency. Multiple wing profiles and angles were tested to achieve the best balance between performance and drag.</p>
-
-                        <h3 class="section-title mt-4">CAD Design</h3>
-                        <div class="row g-4">
-                            <div class="col-12">
-                                <div class="methodology-item h-100">
-                                    <img src="Assets/Images/Drivaer/rear.png" alt="Rear Wing CAD" class="methodology-image">
-                                    <div>
-                                        <strong>3D Model:</strong>
-                                        Final CAD model of the rear wing with mounting points at the pressure side to minimise aerodynamic impact.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="key-outcomes">
-                            <h4>Key Technical Outcomes</h4>
-                            <div class="outcome-item">
-                                <i data-lucide="check-circle-2" size="20"></i>
-                                <div>Robust and customizable CAD design</div>
-                            </div>
-                            <div class="outcome-item">
-                                <i data-lucide="check-circle-2" size="20"></i>
-                                <div>Multi element wing used to increase the AoA without separation with respect to a similar single element wing</div>
-                            </div>
-                            <div class="outcome-item">
-                                <i data-lucide="check-circle-2" size="20"></i>
-                                <div>G2 Continuity and smooth surface transitions with the pylon</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Diffuser Tab -->
-            <div class="tab-pane fade" id="diffuser" role="tabpanel" aria-labelledby="diffuser-tab">
-                <div class="row g-5">
-                    <div class="col-lg-7">
-                        <h3 class="section-title">Description</h3>
-                        <p>The underbody diffuser was designed to maximize ground effect and create additional downforce through pressure recovery. The CAD design allows to rapidly test diffuser angles and the geometry of the vertical fins.</p>
-
-                        <h3 class="section-title mt-4">CAD Design</h3>
-                        <div class="row g-4">
-                            <div class="col-12">
-                                <div class="methodology-item h-100">
-                                    <img src="Assets/Images/Drivaer/diff.png" alt="Diffuser CAD" class="methodology-image">
-                                    <div>
-                                        <strong>3D Model:</strong>
-                                        Detailed CAD model of the diffuser with vertical fins to guide the airflow.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="key-outcomes">
-                            <h4>Key Technical Outcomes</h4>
-                            <div class="outcome-item">
-                                <i data-lucide="check-circle-2" size="20"></i>
-                                <div>Increased downforce with minimal drag increase</div>
-                            </div>
-                            <div class="outcome-item">
-                                <i data-lucide="check-circle-2" size="20"></i>
-                                <div>Improved aerodynamic balance</div>
-                            </div>
-                            <div class="outcome-item">
-                                <i data-lucide="check-circle-2" size="20"></i>
-                                <div>Rear tyre wake management, avoiding turbulent air at the exit of the diffuser</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Splitter Tab -->
-            <div class="tab-pane fade" id="splitter" role="tabpanel" aria-labelledby="splitter-tab">
-                <div class="row g-5">
-                    <div class="col-lg-7">
-                        <h3 class="section-title">Description</h3>
-                        <p>The front splitter was engineered to create a high pressure zone at the airdam and a lower region at the floor increasing front downforce.</p>
-
-                        <h3 class="section-title mt-4">CAD Design</h3>
-                        <div class="row g-4">
-                            <div class="col-12">
-                                <div class="methodology-item h-100">
-                                    <img src="Assets/Images/Drivaer/Splitter.png" alt="Splitter CAD" class="methodology-image">
-                                    <div>
-                                        <strong>3D Model:</strong>
-                                        Detailed CAD model of the front splitter with an airdam and fully customizable angles.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="key-outcomes">
-                            <h4>Key Technical Outcomes</h4>
-                            <div class="outcome-item">
-                                <i data-lucide="check-circle-2" size="20"></i>
-                                <div>Increased front downforce generation</div>
-                            </div>
-                            <div class="outcome-item">
-                                <i data-lucide="check-circle-2" size="20"></i>
-                                <div>Utilisation of high pressure zones at the front to generate downforce</div>
-                            </div>
-                            <div class="outcome-item">
-                                <i data-lucide="check-circle-2" size="20"></i>
-                                <div>Robust CAD design allowing the fast iteration of the splitter</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="stat-card" role="listitem">
+          <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+          <div class="stat-body">
+            <p class="stat-label">CAD Platform</p>
+            <p class="stat-value">3DEXPERIENCE / CATIA</p>
+          </div>
         </div>
-    </main>
-
-    <footer class="text-center py-4 bg-dark text-white mt-5">
-        <div class="container">
-            <p>&copy; 2025 Antonio Doral. All Rights Reserved.</p>
+        <div class="stat-card" role="listitem">
+          <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+          <div class="stat-body">
+            <p class="stat-label">CFD Method</p>
+            <p class="stat-value">Steady-State RANS</p>
+          </div>
         </div>
-    </footer>
+        <div class="stat-card" role="listitem">
+          <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="8 12 12 16 16 12"/><line x1="12" y1="8" x2="12" y2="16"/></svg></div>
+          <div class="stat-body">
+            <p class="stat-label">Validation</p>
+            <p class="stat-value">Mesh Independence Study</p>
+          </div>
+        </div>
+        <div class="stat-card" role="listitem">
+          <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+          <div class="stat-body">
+            <p class="stat-label">Components Analysed</p>
+            <p class="stat-value">3 Major Components</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        lucide.createIcons();
-    </script>
+<!-- ══ REAR WING ═════════════════════════════════════ -->
+
+<!-- ══ DIFFUSER ══════════════════════════════════════ -->
+
+<!-- ══ FRONT SPLITTER ════════════════════════════════ -->
+
+<!-- ══ RESULTS ═══════════════════════════════════════ -->
+<section class="results-section section-pad" aria-labelledby="results-heading">
+  <div class="container">
+    <div class="diagram-header fade-in" style="margin-bottom: var(--space-12);">
+      <p class="section-label" style="justify-content: center;">
+        <span style="width:20px; height:1px; background:var(--color-primary); display:block;"></span>
+        Key Technical Outcomes
+        <span style="width:20px; height:1px; background:var(--color-primary); display:block;"></span>
+      </p>
+      <h2 class="section-heading" id="results-heading" style="font-size:var(--text-xl);">Project Results</h2>
+    </div>
+    <div class="results-grid">
+      <div class="result-card fade-in">
+        <div class="result-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <p class="result-title">CFD Validation</p>
+        <p class="result-body">Mesh independence study confirming solution convergence and aerodynamic accuracy</p>
+      </div>
+      <div class="result-card fade-in">
+        <div class="result-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+        <p class="result-title">Downforce Package</p>
+        <p class="result-body">Integrated three-component aero package with improved front-to-rear balance</p>
+      </div>
+      <div class="result-card fade-in">
+        <div class="result-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+        <p class="result-title">Parametric CAD</p>
+        <p class="result-body">Fully parametric component designs enabling rapid geometry iteration and testing</p>
+      </div>
+      <div class="result-card fade-in">
+        <div class="result-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <p class="result-title">Flow Analysis</p>
+        <p class="result-body">Detailed flowfield visualisation identifying wake structures and pressure distributions</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════ -->
+<footer class="site-footer container" role="contentinfo">
+  <p class="footer-logo">Antonio <span>Doral</span></p>
+  <nav class="footer-links" aria-label="Footer navigation">
+    <a href="index.html">Home</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</footer>
+
+<!-- ══ SCRIPTS ═══════════════════════════════════════ -->
+<script>
+// ── Lucide icons ─────────────────────────────────────
+lucide.createIcons();
+
+// ── GT3 Node Modal ───────────────────────────────────
+(function(){
+  const backdrop       = document.getElementById('aeroModalBackdrop');
+  const closeBtn       = document.getElementById('aeroModalClose');
+  const modalImg       = document.getElementById('aeroModalImg');
+  const modalIndex     = document.getElementById('aeroModalIndex');
+  const modalTitle     = document.getElementById('aeroModalTitle');
+  const modalText      = document.getElementById('aeroModalText');
+  const modalOutcomes  = document.getElementById('aeroModalOutcomes');
+  const modalChips     = document.getElementById('aeroModalChips');
+
+  function openModal(node) {
+    const { image, title, text, index, outcomes, chips } = node.dataset;
+
+    // Image
+    modalImg.src = image;
+    modalImg.alt = title;
+
+    // Text fields
+    modalIndex.textContent = index || 'Component Detail';
+    modalTitle.textContent = title;
+    modalText.textContent  = text;
+
+    // Outcome list
+    modalOutcomes.innerHTML = '';
+    if (outcomes) {
+      JSON.parse(outcomes.replace(/&quot;/g, '"')).forEach(outcome => {
+        const li = document.createElement('li');
+        li.className = 'aero-modal-outcome-item';
+        li.innerHTML = `
+          <span class="aero-modal-outcome-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </span>
+          <span>${outcome}</span>`;
+        modalOutcomes.appendChild(li);
+      });
+    }
+
+    // Chips
+    modalChips.innerHTML = '';
+    if (chips) {
+      JSON.parse(chips.replace(/&quot;/g, '"')).forEach(chip => {
+        const span = document.createElement('span');
+        span.className = 'aero-modal-chip';
+        span.textContent = chip;
+        modalChips.appendChild(span);
+      });
+    }
+
+    backdrop.hidden = false;
+    requestAnimationFrame(() => backdrop.style.opacity = '1');
+    closeBtn.focus();
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    backdrop.style.opacity = '0';
+    setTimeout(() => {
+      backdrop.hidden = true;
+      document.body.style.overflow = '';
+    }, 300);
+  }
+
+  document.querySelectorAll('.aero-node').forEach(n => n.addEventListener('click', () => openModal(n)));
+  closeBtn  && closeBtn.addEventListener('click', closeModal);
+  backdrop  && backdrop.addEventListener('click', e => { if (e.target === backdrop) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !backdrop.hidden) closeModal(); });
+})();
+
+// ── SVG Arrow Lines ───────────────────────────────────
+(function(){
+  function drawArrows(){
+    const wrapper = document.getElementById('gt3Diagram');
+    const svg     = document.getElementById('gt3ArrowSvg');
+    if (!wrapper || !svg) return;
+    svg.innerHTML = '';
+    const nodes = Array.from(wrapper.querySelectorAll('.aero-node'));
+    const W = wrapper.offsetWidth;
+    const H = wrapper.offsetHeight;
+
+    // Centre of car image (approximate focal point)
+    const cx = W * 0.5;
+    const cy = H * 0.45;
+
+    nodes.forEach(node => {
+      const nx = (parseFloat(node.style.getPropertyValue('--node-x')) / 100) * W;
+      const ny = (parseFloat(node.style.getPropertyValue('--node-y')) / 100) * H;
+      const dx = cx - nx, dy = cy - ny;
+      const len = Math.sqrt(dx*dx + dy*dy);
+      const ux = dx/len, uy = dy/len;
+      const r = 58; // node radius in px
+      const x1 = nx + ux*r, y1 = ny + uy*r;
+      const x2 = cx - ux*24, y2 = cy - uy*24;
+
+      const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+      line.setAttribute('x1', x1); line.setAttribute('y1', y1);
+      line.setAttribute('x2', x2); line.setAttribute('y2', y2);
+      svg.appendChild(line);
+
+      const dot = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      dot.setAttribute('cx', x2); dot.setAttribute('cy', y2);
+      dot.setAttribute('r', '3');
+      dot.setAttribute('class','arrow-dot');
+      svg.appendChild(dot);
+    });
+  }
+
+  drawArrows();
+  window.addEventListener('resize', drawArrows);
+})();
+</script>
 </body>
 </html>
