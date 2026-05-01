@@ -1,460 +1,490 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antonio Doral - Portfolio</title>
-    <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Your Custom CSS -->
-    <link rel="stylesheet" href="Assets/CSS/style.css">
-    <!-- Tab Logo -->
-    <link rel="icon" type="Image/png" href="Assets/Images/Logo_small.png">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antonio Doral — Portfolio</title>
+  <meta name="description" content="Aerospace Engineer specialised in aerodynamics with advanced development experience in CFD and Class-A surface design. ">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Portfolio styles -->
+  <link rel="stylesheet" href="Assets/CSS/style.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="Assets/Images/Logo/small.png">
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Antonio Doral</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">Path</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item d-flex align-items-center ms-2">
-                        <a class="btn btn-outline-light btn-sm" href="Assets/Documents/CV_AntonioDoral.pdf" target="_blank" rel="noopener">View CV</a>
-                    </li>
-                </ul>
-            </div>
+
+<!-- ── SCROLL PROGRESS ────────────────────────────────────────────────── -->
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<!-- ── NAV ────────────────────────────────────────────────────────────── -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="#">Antonio <span>Doral</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#background">Background</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item d-flex align-items-center ms-2">
+          <a class="btn btn-outline-light btn-sm" href="Assets/Documents/CV_Antonio_Doral.pdf"
+             target="_blank" rel="noopener">View CV</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ───────────────────────────────────────────────────────────── -->
+<section id="hero" class="hero-section">
+  <div class="hero-content container text-center">
+    <p class="hero-eyebrow">Aerodynamics &nbsp;·&nbsp; CFD &nbsp;·&nbsp; CAD Design</p>
+    <h1 class="display-4">Antonio <em>Doral</em></h1>
+    <p class="lead">Aerospace &amp; Motorsport Engineer building high-performance<br>aerodynamic packages and Class&#8209;A surfaces.</p>
+
+    <div class="hero-stats">
+      <div class="hero-stat-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+        6 Projects
+      </div>
+      <div class="hero-stat-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        3&nbsp;Degrees
+      </div>
+      <div class="hero-stat-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Star&nbsp;CCM+&nbsp;·&nbsp;CATIA&nbsp;·&nbsp;OpenFOAM
+      </div>
+    </div>
+
+    <div class="hero-ctas">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="Assets/Documents/CV_Antonio_Doral.pdf" target="_blank"
+         rel="noopener" class="btn btn-outline-primary">Download CV</a>
+    </div>
+  </div>
+
+  <div class="hero-image-container">
+    <img src="Assets/Images/tittle.png" alt="Aerodynamic surface visualisation" class="hero-image">
+  </div>
+
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ── PROJECTS ───────────────────────────────────────────────────────── -->
+<section id="projects" class="py-5">
+  <div class="container">
+    <div class="section-intro reveal">
+      <p class="section-label">Selected Work</p>
+      <h2 class="section-heading">Projects</h2>
+    </div>
+
+    <!-- Featured: Design Methodology -->
+    <a href="./DesignMethodology.html" class="project-featured reveal" aria-label="View Design Methodology project">
+      <div class="project-featured-media">
+        <img src="Assets/Images/CAD Methodologhy/Thumbnail.png"
+             alt="Design Methodology CAD surfaces" loading="lazy">
+        <span class="project-featured-badge">Design Framework</span>
+      </div>
+      <div class="project-featured-content">
+        <p class="project-index-label">Featured</p>
+        <h3 class="project-featured-title">Design Methodology</h3>
+        <p class="project-featured-desc">Methodology applied to advanced aerodynamic surface design in 3DEXPERIENCE. Ensures a robust, high-quality workflow enabling fast iteration and seamless team collaboration.</p>
+        <div class="project-tech-row">
+          <span>3DEXPERIENCE</span><span>Class-A Surface</span>
+          <span>Parametric CAD</span><span>G2&nbsp;Continuity</span>
         </div>
-    </nav>
+        <span class="project-featured-cta">
+          View Project
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+    </a>
 
-    <!-- Hero Section -->
-    <section id="hero" class="text-center hero-section">
-        <div class="container mb-4 mb-md-5">
-            <h1 class="display-4">Antonio Doral</h1>
-            <p class="lead">Aerospace Engineer with a passion for design and aerodynamics.</p>
-            <!-- Hero CTA removed (moved to Contact section) -->
+    <!-- Asymmetric project grid -->
+    <div class="projects-grid">
+
+      <!-- F1 2026 — wide tile -->
+      <a href="./ProjectF1.html" class="project-tile project-tile--wide reveal" aria-label="View Formula One 2026 project">
+        <div class="project-tile-img">
+          <img src="Assets/Images/F1/THUMBNAIL.png" alt="Formula One 2026 Front Wing" loading="lazy">
         </div>
-        <div class="hero-image-container">
-            <img src="Assets/Images/tittle.png" alt="Decorative Lines" class="hero-image">
+        <div class="project-tile-body">
+          <div class="project-tech-row"><span>CATIA</span><span>FIA&nbsp;Regs</span><span>Airfoil&nbsp;Design</span></div>
+          <h4 class="project-tile-title">Formula One 2026</h4>
+          <p class="project-tile-desc">CAD design following FIA technical regulations Issue&nbsp;14. Full front wing, endplate and nose geometry.</p>
+          <span class="tile-cta">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
-    </section>
+      </a>
 
-    <!-- About Section -->
-    <section id="about" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">My Path</h2>
-            <div class="timeline mx-auto">
-                <!-- Timeline Item 1 -->
-                <div class="timeline-item">
-                    <div class="timeline-content timeline-card animate-timeline-in">
-                        <div class="degree-icon mb-3" style="color:#007bff;">
-                            <!-- Lucide Rocket Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rocket">
-                                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
-                                <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
-                                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
-                                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
-                            </svg>
-                        </div>
-                        <h4 class="mb-2">BSc Aerospace Engineering</h4>
-                        <p class="text-muted mb-1">King Juan Carlos University</p>
-                        <p class="mb-0">Specialised in aerospace vehicles and aerodynamics.</p>
-                    </div>
-                    <div class="timeline-dot" style="background: linear-gradient(135deg, #007bff 60%, #00c6ff 100%);"></div>
-                    <div class="timeline-year">2023</div>
-                </div>
-                <!-- Timeline Item 2 -->
-                <div class="timeline-item">
-                    <div class="timeline-content timeline-card animate-timeline-in" style="animation-delay:0.2s;">
-                        <div class="degree-icon mb-3" style="color:#28a745;">
-                            <!-- Lucide Calculator Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calculator">
-                                <rect width="16" height="20" x="4" y="2" rx="2"/>
-                                <line x1="8" x2="16" y1="6" y2="6"/>
-                                <line x1="8" x2="8" y1="10" y2="10"/>
-                                <line x1="12" x2="12" y1="10" y2="10"/>
-                                <line x1="16" x2="16" y1="10" y2="10"/>
-                                <line x1="8" x2="8" y1="14" y2="14"/>
-                                <line x1="12" x2="12" y1="14" y2="14"/>
-                                <line x1="16" x2="16" y1="14" y2="14"/>
-                                <line x1="8" x2="8" y1="18" y2="18"/>
-                                <line x1="12" x2="12" y1="18" y2="18"/>
-                                <line x1="16" x2="16" y1="18" y2="18"/>
-                            </svg>
-                        </div>
-                        <h4 class="mb-2">MSc Industrial Mathematics</h4>
-                        <p class="text-muted mb-1">Polytechnic University of Madrid</p>
-                        <p class="mb-0">Specialized in numerical simulation and computational fluid dynamics.</p>
-                    </div>
-                    <div class="timeline-dot" style="background: linear-gradient(135deg, #28a745 60%, #a8e063 100%);"></div>
-                    <div class="timeline-year">2024</div>
-                </div>
-                <!-- Timeline Item 3 -->
-                <div class="timeline-item">
-                    <div class="timeline-content timeline-card animate-timeline-in" style="animation-delay:0.4s;">
-                        <div class="degree-icon mb-3" style="color:#dc3545;">
-                            <!-- Lucide Car Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-car">
-                                <path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/>
-                                <circle cx="6.5" cy="16.5" r="2.5"/>
-                                <circle cx="16.5" cy="16.5" r="2.5"/>
-                            </svg>
-                        </div>
-                        <h4 class="mb-2">Msc Motorsport Engineering</h4>
-                        <p class="text-muted mb-1">Oxford Brookes University</p>
-                        <p class="mb-0">Specialization in motorsport application of my engineering knowledge with a focus on aerodynamics and CFD.</p>
-                    </div>
-                    <div class="timeline-dot" style="background: linear-gradient(135deg, #dc3545 60%, #ff758c 100%);"></div>
-                    <div class="timeline-year">2025</div>
-                </div>
-            </div>
+      <!-- GT3 Aero -->
+      <a href="./Project2.html" class="project-tile reveal" aria-label="View GT3 Aerodynamic Design project">
+        <div class="project-tile-img">
+          <img src="Assets/Images/Drivaer/Thumbnail.jpg" alt="GT3 Drivaer Aero Package" loading="lazy">
         </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Professional Experience</h2>
-            <div class="experience-grid">
-                <!-- Experience Card 1 -->
-                <div class="experience-card">
-                    <div class="experience-icon">
-                        <img src="Assets/Images/Experience/Fi.png" alt="Fi Group Logo" class="company-logo">
-                    </div>
-                    <div class="experience-content">
-                        <div class="experience-header">
-                            <h4>R&D Engineering Consultant</h4>
-                            <span class="company">Fi Group</span>
-                            <span class="duration">May 2022 - Jul 2023 (Full-time)<br>Jul 2023 - Aug 2025 (Freelance)</span>
-                        </div>
-                        <ul class="experience-details">
-                            <li> Applied rigorous time and project management</li>
-                            <li>Technical report writing and effective communication with clients</li>
-                            <li>Collaborated with multiple engineering companies, gaining valuable insights into their project methodologies</li>
-                        </ul>
-                        <div class="tech-tags">
-                            <span>Project management</span>
-                            <span>Communication skills</span>
-                            <span>Innovation</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Experience Card 2 -->
-                <div class="experience-card">
-                    <div class="experience-icon">
-                        <img src="Assets/Images/Experience/indra.jpg" alt="Indra Logo" class="company-logo">
-                    </div>
-                    <div class="experience-content">
-                        <div class="experience-header">
-                            <h4>Aerospace Systems Engineer</h4>
-                            <span class="company">Indra Sistemas</span>
-                            <span class="duration">Oct, 2023 - June, 2024</span>
-                        </div>
-                        <ul class="experience-details">
-                            <li>Development and testing of a remote air space control tower</li>
-                            <li>Communication link between clients and engineering teams and on-site testing</li>
-                            <li>Conducted Factory development, Factory Acceptance Tests and Site Acceptance Test at Hungary and Saudi Arabia</li>
-                        </ul>
-                        <div class="tech-tags">
-                            <span>Frequent Traveling</span>
-                            <span>Testing and experimental work</span>
-                            <span>Communication skills</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Experience Card 3 -->
-                <div class="experience-card">
-                    <div class="experience-icon">
-                        <img src="Assets/Images/Experience/OBR.png" alt="Oxford Brookes Racing Logo" class="company-logo">
-                    </div>
-                    <div class="experience-content">
-                        <div class="experience-header">
-                            <h4>Aerodynamics and Vehicle Dynamics </h4>
-                            <span class="company">Oxford Brookes Racing</span>
-                            <span class="duration">Sep, 2024 - June, 2025</span>
-                        </div>
-                        <ul class="experience-details">
-                            <li>Front wing design team</li>
-                            <li>Front Motor cooling duct design team</li>
-                            <li>MF Tyre model development</li>
-                        </ul>
-                        <div class="tech-tags">
-                            <span>Solidworks</span>
-                            <span>Siemens Star CCM+</span>
-                            <span>Surface design </span>
-                            <span>Aerodynamic Analysis </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="project-tile-body">
+          <div class="project-tech-row"><span>Star&nbsp;CCM+</span><span>RANS&nbsp;CFD</span></div>
+          <h4 class="project-tile-title">GT3 Aerodynamic Design</h4>
+          <p class="project-tile-desc">Full aeropackage — rear wing, diffuser and front splitter — optimised in Star&nbsp;CCM+.</p>
+          <span class="tile-cta">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
-    </section>
+      </a>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-5">
-        <div class="container">
-            
-            <!-- Methodology Subsection -->
-            <h2 class="text-center mb-4">Methodology</h2>
-            <div class="row g-4 mb-5 justify-content-center">
-                <!-- Centered Design Methodology Project (single card view) -->
-                <div class="col-12 col-md-10 col-lg-10">
-                    <div class="project-card project-card-feature h-100 shadow-sm position-relative">
-                        <div class="project-card-media">
-                            <img src="Assets/Images/CAD Methodologhy/Thumbnail.png" class="project-card-img" alt="Design Methodology Thumbnail">
-                        </div>
-                        <div class="card-content">
-                            <h5 class="card-title">Design Methodology</h5>
-                            <p class="card-text">Methodology applied to the advanced aerodynamic surface design in the platform 3D Experience. The aim is to ensure a robust, high quality design that enables collaboration with other engineers and fast modification to improve the iteration process.</p>
-                            <a href="./DesignMethodology.html" class="btn btn-primary mt-3">View Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Relevant Projects Subsection -->
-            <h2 class="text-center mb-4">Relevant Projects</h2>
-            <div class="row g-4">
-                <!-- Project 7: Formula One 2026 (featured first) -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 position-relative">
-                        <div class="card-img-wrapper">
-                            <img src="Assets/Images/F1/THUMBNAIL.png" class="card-img-top" alt="Formula One 2026 Thumbnail">
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Formula One 2026</h5>
-                            <p class="card-text flex-grow-1">CAD Design of the 2026 F1 following the FIA technical regulations Issue 14.</p>
-                            <a href="./ProjectF1.html" class="btn btn-primary mt-auto">View Details</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 1: F1 Bodywork -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100">
-                        <div class="card-img-wrapper">
-                            <img src="Assets/Images/Bodywork/Thumbnail.png" class="card-img-top" alt="F1 Bodywork Thumbnail">
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">F1 Bodywork</h5>
-                            <p class="card-text flex-grow-1">CAD design of a Formula 1 sidepod, engine cover and shark fin focusing on resilient high quality surface design.</p>
-                            <a href="./Project1.html" class="btn btn-primary mt-auto">View Details</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2: Drivaer -->
-                    <div class="col-lg-4 col-md-6">
-                    <div class="card h-100">
-                        <div class="card-img-wrapper">
-                            <img src="Assets/Images/Drivaer/Thumbnail.jpg" class="card-img-top" alt="Drivaer Thumbnail">
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">GT3 Aerodynamic Design</h5>
-                            <p class="card-text flex-grow-1">Design of a GT3 aeropackage for the Drivaer fastback model.</p>
-                            <a href="./Project2.html" class="btn btn-primary mt-auto">View Details</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4: Vibrational Analysis -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100">
-                        <div class="card-img-wrapper">
-                            <img src="Assets/Images/Vibration/Thumbnail.jpg" class="card-img-top" alt="Vibrational Analysis Thumbnail">
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Vibrational test and Analysis</h5>
-                            <p class="card-text flex-grow-1">Design and Execution of a Vibrational Test on a Helicopter Tail Rotor Blade using a high-speed camera.</p>
-                            <a href="./Project4.html" class="btn btn-primary mt-auto">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 5: NMPC Controller -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100">
-                        <div class="card-img-wrapper">
-                            <img src="Assets/Images/NMPC/Thumbnail.png" class="card-img-top" alt="NMPC Controller Thumbnail">
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">NMPC UAV Controller</h5>
-                            <p class="card-text flex-grow-1">Development of a Nonlinear Model Predictive Controller for an Autonomous Quadcopter.</p>
-                            <a href="./Project5.html" class="btn btn-primary mt-auto">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 6: Laptime Simulation -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 position-relative">
-                        <div class="card-img-wrapper">
-                            <img src="Assets/Images/laptime/New_Balance.png" class="card-img-top" alt="Laptime Simulation Thumbnail">
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Laptime Simulation</h5>
-                            <p class="card-text flex-grow-1">Simulation and analysis of lap-time performance using vehicle dynamics models, tyre models and track-specific optimisation. <span class="text-muted">Work in progress</span></p>
-                        </div>
-                        <div class="coming-soon-overlay">
-                            <span>Work in Progress</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <!-- F1 Bodywork -->
+      <a href="./Project1.html" class="project-tile reveal" aria-label="View F1 Bodywork project">
+        <div class="project-tile-img">
+          <img src="Assets/Images/Bodywork/Thumbnail.png" alt="F1 Bodywork CAD" loading="lazy">
         </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Software knowledge</h2>
-            <div class="skills-grid">
-                <!-- CFD Software -->
-                <div class="skill-category">
-                    <h5>
-                        <div class="skill-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M3 3v18h18"/>
-                                <path d="M3 12c3-3 6-6 9-6s6 3 9 0"/>
-                            </svg>
-                        </div>
-                        CFD Software
-                    </h5>
-                    <ul class="skill-list">
-                        <li class="skill-item">Siemens Star CCM+</li>
-                        <li class="skill-item">OpenLB</li>
-                        <li class="skill-item">ANSYS Fluent</li>
-                    </ul>
-                </div>
-
-                <!-- CAD Software -->
-                <div class="skill-category">
-                    <h5>
-                        <div class="skill-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-                            </svg>
-                        </div>
-                        CAD Software
-                    </h5>
-                    <ul class="skill-list">
-                        <li class="skill-item">3D Experience Catia</li>
-                        <li class="skill-item">SolidWorks</li>
-                        <li class="skill-item">Siemens NX</li>
-                    </ul>
-                </div>
-
-                <!-- Programming -->
-                <div class="skill-category">
-                    <h5>
-                        <div class="skill-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="16 18 22 12 16 6"/>
-                                <polyline points="8 6 2 12 8 18"/>
-                            </svg>
-                        </div>
-                        Programming
-                    </h5>
-                    <ul class="skill-list">
-                        <li class="skill-item">MATLAB</li>
-                        <li class="skill-item">C++</li>
-                    </ul>
-                </div>
-
-                <!-- FEA Software -->
-                <div class="skill-category">
-                    <h5>
-                        <div class="skill-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                                <polyline points="3.29 7 12 12 20.71 7"/>
-                                <line x1="12" y1="22" x2="12" y2="12"/>
-                            </svg>
-                        </div>
-                        FEA Software
-                    </h5>
-                    <ul class="skill-list">
-                        <li class="skill-item">Patran/Nastran</li>
-                        <li class="skill-item">Marc/Mentat</li>
-                        <li class="skill-item">LS Dyna</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="project-tile-body">
+          <div class="project-tech-row"><span>CATIA</span><span>Class-A</span></div>
+          <h4 class="project-tile-title">F1 Bodywork</h4>
+          <p class="project-tile-desc">Sidepod, engine cover and shark fin with resilient G2-continuous surface design.</p>
+          <span class="tile-cta">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
-    </section>
+      </a>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-5">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="text-center mb-5">
-                        <h2 class="display-5 fw-bold text-dark mb-3">Get In Touch</h2>
-                        <p class="lead text-muted">I'm currently seeking new opportunities. Let's connect and discuss how we can work together.</p>
-                    </div>
-                    <div class="row g-4 justify-content-center">
-                        <div class="col-md-4">
-                            <div class="contact-card p-4 h-100">
-                                <div class="contact-icon mb-3">
-                                    <i data-lucide="mail" size="48"></i>
-                                </div>
-                                <h5 class="fw-semibold mb-2">Email</h5>
-                                <p class="text-muted mb-3">Drop me a message anytime</p>
-                                <a href="mailto:a.doral.rodriguez@gmail.com" class="btn btn-outline-primary btn-lg">Send Email</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="contact-card p-4 h-100">
-                                <div class="contact-icon mb-3">
-                                    <i data-lucide="linkedin" size="48"></i>
-                                </div>
-                                <h5 class="fw-semibold mb-2">LinkedIn</h5>
-                                <p class="text-muted mb-3">Connect with me professionally</p>
-                                <a href="https://www.linkedin.com/in/antoniodoral/" target="_blank" class="btn btn-outline-primary btn-lg">View Profile</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="contact-card p-4 h-100">
-                                <div class="contact-icon mb-3">
-                                    <i data-lucide="file-text" size="48"></i>
-                                </div>
-                                <h5 class="fw-semibold mb-2">Curriculum Vitae</h5>
-                                <p class="text-muted mb-3">View or download my CV (PDF).</p>
-                                <a href="Assets/Documents/CV_AntonioDoral.pdf" target="_blank" rel="noopener" class="btn btn-outline-primary btn-lg">View CV</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <!-- Vibration Test -->
+      <a href="./Project4.html" class="project-tile reveal" aria-label="View Vibration Test project">
+        <div class="project-tile-img">
+          <img src="Assets/Images/Vibration/Thumbnail.jpg" alt="Vibration Test rotor blade" loading="lazy">
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="text-center py-4 bg-dark text-white">
-        <div class="container">
-            <p>&copy; 2025 Antonio Doral. All Rights Reserved.</p>
+        <div class="project-tile-body">
+          <div class="project-tech-row"><span>MATLAB</span><span>High-Speed&nbsp;Cam</span></div>
+          <h4 class="project-tile-title">Vibrational Test &amp; Analysis</h4>
+          <p class="project-tile-desc">Non-contact image-recognition method for rotor blade vibration — 85% grade thesis.</p>
+          <span class="tile-cta">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
-    </footer>
+      </a>
 
-    <!-- Bootstrap JS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <script>
-        lucide.createIcons();
-    </script>
-    <!-- Your Custom JS -->
-    <script src="Assets/JS/main.js"></script>
-    <script src="Assets/JS/timeline.js"></script>
+      <!-- NMPC Controller -->
+      <a href="./Project5.html" class="project-tile reveal" aria-label="View NMPC UAV Controller project">
+        <div class="project-tile-img">
+          <img src="Assets/Images/NMPC/Thumbnail.png" alt="NMPC UAV Controller" loading="lazy">
+        </div>
+        <div class="project-tile-body">
+          <div class="project-tech-row"><span>C++</span><span>CasADi</span><span>IPOPT</span></div>
+          <h4 class="project-tile-title">NMPC UAV Controller</h4>
+          <p class="project-tile-desc">Nonlinear MPC for a 6-DOF quadcopter — 95% grade Industrial Mathematics thesis.</p>
+          <span class="tile-cta">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+    </div><!-- /projects-grid -->
+  </div>
+</section>
+
+<!-- ── SKILLS ─────────────────────────────────────────────────────────── -->
+<section id="skills" class="py-5">
+  <div class="container">
+    <div class="section-intro reveal">
+      <p class="section-label">Toolbox</p>
+      <h2 class="section-heading">Software &amp; Skills</h2>
+    </div>
+    <div class="skills-categories">
+
+      <!-- ── CFD ──────────────────────────────────────────────── -->
+      <div class="skill-group reveal">
+        <div class="skill-group-header">
+          <span class="skill-group-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </span>
+          <h4 class="skill-group-title">CFD</h4>
+          <span class="skill-group-count">3 tools</span>
+        </div>
+        <div class="skill-group-tiles">
+          <div class="tool-tile">
+            <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <p class="tool-name">Star&nbsp;CCM+</p>
+            <span class="tool-level tool-level--advanced">Advanced</span>
+          </div>
+          <div class="tool-tile">
+            <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M3 12c3-3 6-6 9-6s6 3 9 0"/></svg></div>
+            <p class="tool-name">OpenFOAM</p>
+            <span class="tool-level tool-level--intermediate">Intermediate</span>
+          </div>
+          <div class="tool-tile">
+            <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+            <p class="tool-name">ANSYS Fluent</p>
+            <span class="tool-level tool-level--intermediate">Intermediate</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CAD ──────────────────────────────────────────────── -->
+      <div class="skill-group reveal">
+        <div class="skill-group-header">
+          <span class="skill-group-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </span>
+          <h4 class="skill-group-title">CAD</h4>
+          <span class="skill-group-count">3 tools</span>
+        </div>
+        <div class="skill-group-tiles">
+          <div class="tool-tile">
+            <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+            <p class="tool-name">3DEXPERIENCE</p>
+            <span class="tool-level tool-level--advanced">Advanced</span>
+          </div>
+          <div class="tool-tile">
+            <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="tool-name">SolidWorks</p>
+            <span class="tool-level tool-level--advanced">Advanced</span>
+          </div>
+          <div class="tool-tile">
+            <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+            <p class="tool-name">Siemens NX</p>
+            <span class="tool-level tool-level--intermediate">Intermediate</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PROGRAMMING ───────────────────────────────────────── -->
+      <div class="skill-group reveal">
+        <div class="skill-group-header">
+          <span class="skill-group-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </span>
+          <h4 class="skill-group-title">Programming</h4>
+          <span class="skill-group-count">2 tools</span>
+        </div>
+        <div class="skill-group-tiles">
+          <div class="tool-tile">
+            <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="8" x2="10" y1="10" y2="10"/><line x1="8" x2="16" y1="14" y2="14"/><line x1="8" x2="14" y1="18" y2="18"/></svg></div>
+            <p class="tool-name">MATLAB</p>
+            <span class="tool-level tool-level--intermediate">Intermediate</span>
+          </div>
+          <div class="tool-tile">
+            <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+            <p class="tool-name">C++</p>
+            <span class="tool-level tool-level--beginner">Beginner</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── FEA ───────────────────────────────────────────────── -->
+      <div class="skill-group reveal">
+        <div class="skill-group-header">
+          <span class="skill-group-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </span>
+          <h4 class="skill-group-title">FEA</h4>
+          <span class="skill-group-count">3 tools</span>
+        </div>
+        <div class="skill-group-tiles">
+          <div class="tool-tile">
+            <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <p class="tool-name">Patran&nbsp;/&nbsp;Nastran</p>
+            <span class="tool-level tool-level--beginner">Beginner</span>
+          </div>
+          <div class="tool-tile">
+            <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+            <p class="tool-name">Marc&nbsp;/&nbsp;Mentat</p>
+            <span class="tool-level tool-level--beginner">Beginner</span>
+          </div>
+          <div class="tool-tile">
+            <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+            <p class="tool-name">LS-Dyna</p>
+            <span class="tool-level tool-level--intermediate">Intermediate</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── VISUALISATION ─────────────────────────────────────── -->
+      <div class="skill-group skill-group--solo reveal">
+        <div class="skill-group-header">
+          <span class="skill-group-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </span>
+          <h4 class="skill-group-title">Visualisation</h4>
+          <span class="skill-group-count">2 tools</span>
+        </div>
+        <div class="skill-group-tiles">
+          <div class="tool-tile">
+            <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+            <p class="tool-name">ParaView</p>
+            <span class="tool-level tool-level--intermediate">Intermediate</span>
+          </div>
+          <div class="tool-tile">
+            <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <p class="tool-name">MoTeC&nbsp;i2</p>
+            <span class="tool-level tool-level--intermediate">Intermediate</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /skills-categories -->
+  </div>
+</section>
+
+<!-- ── BACKGROUND ─────────────────────────────────────────────────────── -->
+<section id="background" class="py-5">
+  <div class="container">
+    <div class="section-intro reveal">
+      <p class="section-label">History</p>
+      <h2 class="section-heading">Background</h2>
+    </div>
+
+    <div class="background-grid">
+
+      <!-- LEFT: Education -->
+      <div class="background-col">
+        <h3 class="background-col-heading reveal">Education</h3>
+
+        <div class="edu-item reveal">
+          <div class="edu-icon" style="color:var(--color-primary)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div>
+            <p class="edu-degree">MSc Motorsport Engineering</p>
+            <p class="edu-school">Oxford Brookes University &middot; 2025</p>
+            <p class="edu-desc">Aerodynamics and CFD focus — front wing design, tyre modelling and motorsport vehicle dynamics.</p>
+          </div>
+        </div>
+
+        <div class="edu-item reveal">
+          <div class="edu-icon" style="color:#4ade80">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="8" x2="10" y1="10" y2="10"/><line x1="8" x2="16" y1="14" y2="14"/></svg>
+          </div>
+          <div>
+            <p class="edu-degree">MSc Industrial Mathematics</p>
+            <p class="edu-school">Polytechnic University of Madrid &middot; 2024</p>
+            <p class="edu-desc">Numerical simulation, CFD and nonlinear optimal control — NMPC thesis awarded 95%.</p>
+          </div>
+        </div>
+
+        <div class="edu-item reveal">
+          <div class="edu-icon" style="color:#60a5fa">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
+          </div>
+          <div>
+            <p class="edu-degree">BSc Aerospace Engineering</p>
+            <p class="edu-school">King Juan Carlos University &middot; 2023</p>
+            <p class="edu-desc">Specialised in aerospace vehicles and aerodynamics — vibrational analysis thesis awarded 85%.</p>
+          </div>
+        </div>
+      </div><!-- /background-col education -->
+
+      <!-- RIGHT: Experience -->
+      <div class="background-col">
+        <h3 class="background-col-heading reveal">Experience</h3>
+
+        <div class="exp-compact reveal">
+          <div class="exp-compact-logo">
+            <img src="Assets/Images/Experience/OBR.png" alt="Oxford Brookes Racing" loading="lazy">
+          </div>
+          <div class="exp-compact-content">
+            <p class="exp-compact-role">Aerodynamics &amp; Vehicle Dynamics</p>
+            <p class="exp-compact-company">Oxford Brookes Racing &middot; Sep 2024 – Jun 2025</p>
+            <ul class="exp-compact-bullets">
+              <li>Front wing design team</li>
+              <li>Front motor cooling duct design</li>
+              <li>MF Tyre model development</li>
+            </ul>
+            <div class="project-tech-row"><span>Star&nbsp;CCM+</span><span>SolidWorks</span><span>Aero&nbsp;Analysis</span></div>
+          </div>
+        </div>
+
+        <div class="exp-compact reveal">
+          <div class="exp-compact-logo">
+            <img src="Assets/Images/Experience/indra.jpg" alt="Indra Sistemas" loading="lazy">
+          </div>
+          <div class="exp-compact-content">
+            <p class="exp-compact-role">Aerospace Systems Engineer</p>
+            <p class="exp-compact-company">Indra Sistemas &middot; Oct 2023 – Jun 2024</p>
+            <ul class="exp-compact-bullets">
+              <li>Remote air space control tower development &amp; testing</li>
+              <li>FAT and SAT at Hungary and Saudi Arabia</li>
+            </ul>
+            <div class="project-tech-row"><span>Systems&nbsp;Eng</span><span>Testing</span><span>Travel</span></div>
+          </div>
+        </div>
+
+        <div class="exp-compact reveal">
+          <div class="exp-compact-logo">
+            <img src="Assets/Images/Experience/Fi.png" alt="Fi Group" loading="lazy">
+          </div>
+          <div class="exp-compact-content">
+            <p class="exp-compact-role">R&amp;D Engineering Consultant</p>
+            <p class="exp-compact-company">Fi Group &middot; May 2022 – Aug 2025</p>
+            <ul class="exp-compact-bullets">
+              <li>Technical reports and client communication</li>
+              <li>Collaboration across multiple engineering companies</li>
+            </ul>
+            <div class="project-tech-row"><span>Project&nbsp;Mgmt</span><span>R&amp;D&nbsp;Consulting</span></div>
+          </div>
+        </div>
+
+      </div><!-- /background-col experience -->
+    </div><!-- /background-grid -->
+  </div>
+</section>
+
+<!-- ── CONTACT ────────────────────────────────────────────────────────── -->
+<section id="contact" class="py-5">
+  <div class="container">
+    <div class="section-intro text-center reveal">
+      <p class="section-label" style="justify-content:center">Get In Touch</p>
+      <h2 class="display-5 fw-bold text-dark mb-3">Let's Work Together</h2>
+      <p class="lead text-muted mb-5">Currently seeking new opportunities. Let's connect and discuss how we can work together.</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-4">
+        <div class="contact-card p-4 h-100 reveal">
+          <div class="contact-icon mb-3">
+            <i data-lucide="mail" size="40"></i>
+          </div>
+          <h5 class="fw-semibold mb-2">Email</h5>
+          <p class="text-muted mb-3">Drop me a message anytime</p>
+          <a href="mailto:a.doral.rodriguez@gmail.com" class="btn btn-outline-primary btn-lg">Send Email</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="contact-card p-4 h-100 reveal">
+          <div class="contact-icon mb-3">
+            <i data-lucide="linkedin" size="40"></i>
+          </div>
+          <h5 class="fw-semibold mb-2">LinkedIn</h5>
+          <p class="text-muted mb-3">Connect with me professionally</p>
+          <a href="https://www.linkedin.com/in/antoniodoral" target="_blank"
+             class="btn btn-outline-primary btn-lg">View Profile</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="contact-card p-4 h-100 reveal">
+          <div class="contact-icon mb-3">
+            <i data-lucide="file-text" size="40"></i>
+          </div>
+          <h5 class="fw-semibold mb-2">Curriculum Vitae</h5>
+          <p class="text-muted mb-3">View or download my CV (PDF).</p>
+          <a href="Assets/Documents/CV_Antonio_Doral.pdf" target="_blank"
+             rel="noopener" class="btn btn-outline-primary btn-lg">View CV</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────────── -->
+<footer class="text-center py-4 bg-dark text-white">
+  <div class="container">
+    <p>&copy; 2025 Antonio Doral. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- ── SCRIPTS ────────────────────────────────────────────────────────── -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script>lucide.createIcons();</script>
+<script src="Assets/JS/main.js"></script>
 </body>
 </html>
